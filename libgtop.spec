@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.2
-Release:	2
+Version:	2.0.3
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5: c2c7c8807fcf5c4b3a1f1fc726e9def1
+# Source0-md5:	29e5303fa0ec3eeae61296e8715ed4a6
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
