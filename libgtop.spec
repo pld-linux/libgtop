@@ -2,17 +2,16 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.1
-Release:	3
+Release:	4
 Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
-Patch:		libgtop-DESTDIR.patch
 BuildPrereq:	glib-devel >= 1.2.0
 BuildPrereq:	ORBit-devel 
 BuildPrereq:	guile-devel 
 BuildPrereq:	XFree86-devel
-BuildPrereq:	gettext
+BuildPrereq:	gettext >= 0.10.35-9
 Requires:	glib >= 1.2.0
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -63,9 +62,9 @@ Biblioteki statyczne LibGTop.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
+gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr/X11R6 \
@@ -127,6 +126,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Sun Apr 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.0.1-4]
+- run "gettextize --copy --force" on top %build instead patching
+  po/Makefile.in.in,
+- recompiled on new rpm.
+
 * Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
   [1.0.1-2]
 - gzipping documentation (instead bzipping)
