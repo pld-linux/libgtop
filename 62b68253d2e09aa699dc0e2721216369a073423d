@@ -1,0 +1,7 @@
+- updated to 1.0.13,
+- merge translations from KSI and Kondra,
+- libgtop1{,-devel} added to Obsoletes for allow upgrade from MDK,
+- security fix (ovflw patch): fix remore exploitable bug in libgtop_daemon
+  (patch from Conectiva),
+- merge isdn patch from rawhide (fix building libgtpop on systemne with
+  kernel 2.4.x headers).
