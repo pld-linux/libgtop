@@ -86,7 +86,7 @@ são obtidas diretamente do sistema de arquivos /proc.
 
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
-Summary(es):	Bibliotecas e archivos de inclusión para desarrollar aplicaciones libgtop.
+Summary(es):	Bibliotecas e archivos de inclusión para desarrollar aplicaciones libgtop
 Summary(ja):	LibGTop ¥¢¥×¥ê¥±¡¼¥·¥ç¥óºîÀ®¤Î¤¿¤á¤Î¥é¥¤¥Ö¥é¥ê¡¢¥¤¥ó¥¯¥ë¡¼¥É¥Õ¥¡¥¤¥ë¤ä¤½¤ÎÂ¾¥Õ¥¡¥¤¥ë
 Summary(pl):	Pliki nag³ówkowe dla LibGTop
 Summary(pt_BR):	Bibliotecas e arquivos de inclusão para desenvolver aplicações com a libgtop
