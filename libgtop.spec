@@ -13,7 +13,7 @@ Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-ac.patch
 Patch2:		%{name}-ovflw.patch
