@@ -18,17 +18,13 @@ Patch0:		%{name}-info.patch
 Patch1:		%{name}-ac.patch
 Patch2:		%{name}-ovflw.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit2-devel >= 2.5.0
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bc
-BuildRequires:	gettext-devel >= 0.10.35-9
+BuildRequires:	gettext-devel
 BuildRequires:	gdbm-devel
-BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	glib2-devel
 BuildRequires:	guile-devel
 BuildRequires:	libtool
-BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
@@ -94,6 +90,8 @@ Summary(ru):	Файлы для разработки программ с использованием LibGTop
 Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gdbm-devel
+Requires:	glib2-devel
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -203,7 +201,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.??
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_libdir}/libgtop
 %{_includedir}/libgtop-2.0
 %{_pkgconfigdir}/*.pc
