@@ -1,8 +1,8 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.1
-Release:	4
+Version:	1.0.2
+Release:	1
 Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
@@ -82,13 +82,15 @@ strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
 gzip -9nf src/inodedb/README.inodedb
 gzip -9nf RELNOTES* AUTHORS ChangeLog NEWS README
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f libgtop.lang
 %defattr(644,root,root,755)
 %doc src/inodedb/README.inodedb.gz
 
@@ -98,20 +100,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/X11R6/bin/mkinodedb
 
 /usr/X11R6/lib/libgtop-features.def
-
-%lang(de)    /usr/X11R6/share/locale/de/LC_MESSAGES/libgtop.mo
-%lang(es)    /usr/X11R6/share/locale/es/LC_MESSAGES/libgtop.mo
-%lang(es_DO) /usr/X11R6/share/locale/es_DO/LC_MESSAGES/libgtop.mo
-%lang(es_GT) /usr/X11R6/share/locale/es_GT/LC_MESSAGES/libgtop.mo
-%lang(es_HN) /usr/X11R6/share/locale/es_HN/LC_MESSAGES/libgtop.mo
-%lang(es_MX) /usr/X11R6/share/locale/es_MX/LC_MESSAGES/libgtop.mo
-%lang(es_PA) /usr/X11R6/share/locale/es_PA/LC_MESSAGES/libgtop.mo
-%lang(es_PE) /usr/X11R6/share/locale/es_PE/LC_MESSAGES/libgtop.mo
-%lang(es_SV) /usr/X11R6/share/locale/es_SV/LC_MESSAGES/libgtop.mo
-%lang(fr)    /usr/X11R6/share/locale/fr/LC_MESSAGES/libgtop.mo
-%lang(ja)    /usr/X11R6/share/locale/ja/LC_MESSAGES/libgtop.mo
-%lang(ko)    /usr/X11R6/share/locale/ko/LC_MESSAGES/libgtop.mo
-%lang(no)    /usr/X11R6/share/locale/no/LC_MESSAGES/libgtop.mo
 
 %files devel
 %defattr(644,root,root,755)
@@ -126,6 +114,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Wed Jun  9 1999 Jan Rêorajski <baggins@pld.org.pl>
+  [1.0.2-1]
+- new version
+- added find_lang macro
+
 * Sun Apr 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.0.1-4]
 - run "gettextize --copy --force" on top %build instead patching
