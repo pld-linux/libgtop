@@ -166,8 +166,8 @@ rm -f missing
 libtoolize --copy --force
 gettextize --copy --force
 aclocal -I macros -I .
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--without-linux-table \
 	--with-libgtop-inodedb \
