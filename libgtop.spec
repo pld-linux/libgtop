@@ -16,6 +16,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.t
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
+Patch3:		%{name}-am.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	ORBit2-devel >= 2.5.1
 BuildRequires:	XFree86-devel
@@ -153,6 +154,7 @@ LibGTop.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
