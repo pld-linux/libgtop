@@ -6,20 +6,18 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.5.0
-Release:	0.1
+Version:	2.5.1
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	76c0a309157c08f2010c2f41e54b89a6
+# Source0-md5:	b419ebf3778ee0ef998f100eb8be8de8
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
-Patch3:		%{name}-g_free.patch
+Patch3:		%{name}-locale-names.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit2-devel >= 2.5.1
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bc
@@ -27,7 +25,9 @@ BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	glib2-devel >= 2.3.0
 BuildRequires:	guile-devel
+BuildRequires:	libgnome-devel >= 2.5.0
 BuildRequires:	libtool
+BuildRequires:	perl-base
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
@@ -91,8 +91,7 @@ Summary(pt_BR):	Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes c
 Summary(ru):	Файлы для разработки программ с использованием LibGTop
 Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	XFree86-devel
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
 Requires:	glib2-devel >= 2.3.0
 Obsoletes:	libgtop1-devel
@@ -131,7 +130,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libgtop
 Summary(ru):	Статические библиотеки для разработки программ с использованием LibGTop
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static LibGTop libraries.
@@ -156,7 +155,12 @@ LibGTop.
 %patch2 -p1
 %patch3 -p1
 
+mv po/{no,nb}.po
+
 cd src/daemon
+sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
+mv -f Makefile.am.tmp Makefile.am
+cd ../../examples
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
 
@@ -170,7 +174,6 @@ glib-gettextize --copy --force
 %configure \
 	--with-linux-table=no \
 	--with-libgtop-inodedb \
-	--with-libgtop-guile \
 	--with-libgtop-smp
 %{__make}
 
