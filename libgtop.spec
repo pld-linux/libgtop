@@ -1,13 +1,13 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.1.0
+Version:	1.0.3
 Release:	1
+Serial:		1
 Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
-Patch:		libgtop-makefile.patch
 BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
 BuildRequires:	guile-devel
@@ -67,7 +67,6 @@ Biblioteki statyczne LibGTop.
 
 %prep
 %setup -q
-%patch -p0
 
 %build
 gettextize --copy --force
@@ -82,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
 
 gzip -9nf src/inodedb/README.inodedb \
 	RELNOTES* AUTHORS ChangeLog NEWS README
@@ -99,22 +98,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc src/inodedb/README.inodedb.gz
 
-%attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
-%attr(755,root,root) /usr/X11R6/bin/file_by_inode
-%attr(755,root,root) /usr/X11R6/bin/libgtop_daemon
-%attr(755,root,root) /usr/X11R6/bin/mkinodedb
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_bindir}/file_by_inode
+%attr(755,root,root) %{_bindir}/libgtop_daemon
+%attr(755,root,root) %{_bindir}/mkinodedb
 
-/usr/X11R6/lib/libgtop-features.def
+%{_libdir}/libgtop-features.def
 
 %files devel
 %defattr(644,root,root,755)
 %doc {RELNOTES*,AUTHORS,ChangeLog,NEWS,README}.gz
-%attr(755,root,root) /usr/X11R6/bin/libgtop-config
-%attr(755,root,root) /usr/X11R6/lib/lib*.so
-%attr(755,root,root) /usr/X11R6/lib/*.sh
-%attr(755,root,root) /usr/X11R6/lib/*.la
+%attr(755,root,root) %{_bindir}/libgtop-config
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/*.sh
+%attr(755,root,root) %{_libdir}/*.la
 
-/usr/X11R6/include/*
+%{_includedir}/*
 
 %files static
-%attr(644,root,root) /usr/X11R6/lib/lib*.a
+%attr(644,root,root) %{_libdir}/lib*.a
