@@ -6,32 +6,32 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.7
+Version:	2.0.8
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	b07e6ed75e0d45423b47db8ac370c571
+# Source0-md5:	9e5b728a8639fd7c7f86ddf2cb726435
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
 Patch3:		%{name}-am.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit2-devel >= 2.5.1
+BuildRequires:	ORBit2-devel >= 2.8.0
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	guile-devel
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A library that fetches information about the running system such as
@@ -94,7 +94,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
 Requires:	XFree86-devel
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 2.0.6
+Requires:	glib2-devel >= 2.2.0
 Obsoletes:	libgtop1-devel
 
 %description devel
