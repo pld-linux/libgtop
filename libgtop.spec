@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.9.91
+Version:	2.9.92
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	ce0412b797130596a6d7d503a494d2ce
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	3fedd8f34f1438c5be3b82d9185f42fe
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
@@ -198,7 +198,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README src/inodedb/README.inodedb
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
-%attr(755,root,root) %{_bindir}/libgtop_daemon2
 %attr(755,root,root) %{_bindir}/mkinodedb2
 
 %files devel
