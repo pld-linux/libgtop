@@ -9,13 +9,11 @@ Name:		libgtop
 Version:	2.9.91
 Release:	1
 Epoch:		1
-License:	LGPL
+License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.9/%{name}-%{version}.tar.bz2
 # Source0-md5:	ce0412b797130596a6d7d503a494d2ce
-Patch0:		%{name}-info.patch
-Patch1:		%{name}-configure.patch
-Patch2:		%{name}-ovflw.patch
+Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -149,8 +147,6 @@ LibGTop.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
