@@ -8,8 +8,8 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.0
-Release:	3
+Version:	2.0.1
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
@@ -18,7 +18,7 @@ Patch0:		%{name}-info.patch
 Patch1:		%{name}-ac.patch
 Patch2:		%{name}-ovflw.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit2-devel >= 2.5.0
+BuildRequires:	ORBit2-devel >= 2.5.1
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
