@@ -2,7 +2,7 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.12
-Release:	6
+Release:	7
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -74,10 +74,9 @@ Biblioteki statyczne LibGTop.
 %patch1 -p1
 %patch2 -p1
 
-(cd src/daemon
+cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
-)
 
 %build
 rm -f missing
@@ -132,7 +131,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/*.sh
 %attr(755,root,root) %{_libdir}/*.la
-%{_libdir}/*.def
 %{_includedir}/*
 %{_infodir}/*info*
 
