@@ -6,23 +6,22 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.6.0
+Version:	2.8.0
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	5d0ec207842b54d2f2d04c99af7c98b9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	5e1ec5a3d62b68530ae436e842e55fdf
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
-Patch3:		%{name}-locale-names.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 1:2.4.0
+BuildRequires:	glib2-devel >= 1:2.4.4
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	popt-devel
@@ -90,7 +89,7 @@ Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 1:2.4.0
+Requires:	glib2-devel >= 1:2.4.4
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -150,9 +149,6 @@ LibGTop.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-
-mv po/{no,nb}.po
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
@@ -182,6 +178,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove bogus es_ES locale (empty while there is non-empty es)
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --all-name
 
