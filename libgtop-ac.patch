@@ -1,5 +1,6 @@
---- libgtop-2.0.0/acinclude.m4.wiget	Wed Jun 12 12:55:12 2002
-+++ libgtop-2.0.0/acinclude.m4	Wed Jun 12 13:13:39 2002
+diff -urN libgtop-2.0.1.orig/acinclude.m4 libgtop-2.0.1/acinclude.m4
+--- libgtop-2.0.1.orig/acinclude.m4	Mon Jan 13 22:23:10 2003
++++ libgtop-2.0.1/acinclude.m4	Mon Jan 13 22:23:33 2003
 @@ -517,10 +517,10 @@
    # this should go away soon
    need_gnome_support=yes
@@ -49,15 +50,9 @@
    AM_CONDITIONAL(BUILD_GNOME_SUPPORT, test "$need_gnome_support" = yes)
  ])
  
-@@ -874,4 +873,4 @@
- 	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
- ])
- 
--  
-\ No newline at end of file
-+  
---- libgtop-2.0.0/configure.in.wiget	Wed Jun 12 13:15:35 2002
-+++ libgtop-2.0.0/configure.in	Wed Jun 12 13:18:04 2002
+diff -urN libgtop-2.0.1.orig/configure.in libgtop-2.0.1/configure.in
+--- libgtop-2.0.1.orig/configure.in	Mon Jan 13 22:23:10 2003
++++ libgtop-2.0.1/configure.in	Mon Jan 13 22:23:33 2003
 @@ -51,6 +51,7 @@
  AC_ISC_POSIX
  AC_PROG_CC
