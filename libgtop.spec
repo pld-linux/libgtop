@@ -8,14 +8,14 @@ Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
 Patch:		libgtop-makefile.patch
-BuildPrereq:	glib-devel >= 1.2.0
-BuildPrereq:	ORBit-devel
-BuildPrereq:	guile-devel
-BuildPrereq:	XFree86-devel
-BuildPrereq:	gettext >= 0.10.35-9
-BuildPrereq:	gdbm-devel
-BuildPrereq:	zlib-devel
-BuildPrereq:	gnome-libs-devel
+BuildRequires:	glib-devel >= 1.2.0
+BuildRequires:	ORBit-devel
+BuildRequires:	guile-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	gettext >= 0.10.35-9
+BuildRequires:	gdbm-devel
+BuildRequires:	zlib-devel
+BuildRequires:	gnome-libs-devel
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
