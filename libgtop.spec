@@ -1,21 +1,22 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.2
+Version:	1.1.0
 Release:	1
 Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
 BuildPrereq:	glib-devel >= 1.2.0
-BuildPrereq:	ORBit-devel 
-BuildPrereq:	guile-devel 
+BuildPrereq:	ORBit-devel
+BuildPrereq:	guile-devel
 BuildPrereq:	XFree86-devel
 BuildPrereq:	gettext >= 0.10.35-9
-Requires:	glib >= 1.2.0
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
+
+%define		_prefix	/usr/X11R6
 
 %description
 A library that fetches information about the running system such as
@@ -65,9 +66,8 @@ Biblioteki statyczne LibGTop.
 
 %build
 gettextize --copy --force
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=/usr/X11R6 \
+LDFLAGS="-s"; export LDFLAGS
+%configure \
 	--without-linux-table \
 	--with-libgtop-inodedb
 make
@@ -77,10 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
-strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
 
-gzip -9nf src/inodedb/README.inodedb
-gzip -9nf RELNOTES* AUTHORS ChangeLog NEWS README
+gzip -9nf src/inodedb/README.inodedb \
+	RELNOTES* AUTHORS ChangeLog NEWS README
 
 %find_lang %{name}
 
@@ -107,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/X11R6/bin/libgtop-config
 %attr(755,root,root) /usr/X11R6/lib/lib*.so
 %attr(755,root,root) /usr/X11R6/lib/*.sh
+%attr(755,root,root) /usr/X11R6/lib/*.la
 
 /usr/X11R6/include/*
 
@@ -114,61 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
-* Wed Jun  9 1999 Jan Rêorajski <baggins@pld.org.pl>
-  [1.0.2-1]
-- new version
-- added find_lang macro
-
-* Sun Apr 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.0.1-4]
-- run "gettextize --copy --force" on top %build instead patching
-  po/Makefile.in.in,
-- recompiled on new rpm.
-
-* Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [1.0.1-2]
-- gzipping documentation (instead bzipping)
-
-* Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.0.1-1]
-- changed Group in devel and static to X11/Development/Libraries,
-- updated Requires (gnome-libs = 1.0.2, glib = 1.2.0),
-- more locales (ja).
-
-* Mon Jan 04 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.99.1-1]
-- added LDFLAGS="-s" to ./configure enviroment,
-- removed examples subpackage (added to Obsoletes),
-- more locales (de, es, es_DO, es_GT, es_HN, es_MX, es_PA,
-  es_PE, es_SV, ko, no),
-
-  by Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-
-- build against GNU libc-2.1,
-- compressed documentation,
-- patch against empty macros.
-
-* Fri Sep 25 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.26.0-1]
-- added -q %setup parameter,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- added static subpackage,
-- removed "Prereq: /sbin/install-info" from main package,
-- changed dependencies to "Requires: %%{name} = %%{version}" in devel
-  and examples subpackages,
-- added full %attr description in %files,
-- removed copyright.txt from %doc (copyright statment is in Copyright
-  field),
-- some %doc moved to devel,
-- added pl translation,
-- removed Packager field (thi must be in private ~/.rpmrc),
-- addes triping binaries and shared libtaries,
-- changed prefix to /usr/X11R6,
-- added stripping shared libraries.
-
-* Tue Aug 19 1998 Martin Baulig <martin@home-of-linux.org>
-- released LibGTop 0.25.0
-
-* Sun Aug 16 1998 Martin Baulig <martin@home-of-linux.org>
-- first version of the RPM
+* Sat Jul 10 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.1.0-1]
+- based on RH spec,
+- spec rewrited by PLD team.
