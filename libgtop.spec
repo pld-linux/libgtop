@@ -9,7 +9,7 @@ Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
 Version:	2.0.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		Libraries
@@ -24,7 +24,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
-BuildRequires:	gdbm-devel
+BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	guile-devel
 BuildRequires:	libtool
