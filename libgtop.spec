@@ -91,6 +91,9 @@ Summary(ru):	Файлы для разработки программ с использованием LibGTop
 Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
+Requires:	XFree86-devel
+Requires:	gdbm-devel >= 1.8.3
+Requires:	glib2-devel >= 2.0.6
 Obsoletes:	libgtop1-devel
 
 %description devel
