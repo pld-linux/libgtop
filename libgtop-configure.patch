@@ -1,0 +1,11 @@
+diff -urN libgtop-2.0.2.orig/configure.in libgtop-2.0.2/configure.in
+--- libgtop-2.0.2.orig/configure.in	Thu May 15 21:38:35 2003
++++ libgtop-2.0.2/configure.in	Thu May 15 21:44:45 2003
+@@ -51,6 +51,7 @@
+ AC_ISC_POSIX
+ AC_PROG_CC
+ AC_STDC_HEADERS
++AM_PROG_AS
+ dnl AC_ARG_PROGRAM
+ 
+ dnl We need this at some places.
