@@ -2,7 +2,7 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.1
-Release:	1
+Release:	2
 Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
@@ -23,7 +23,7 @@ filesystem while on other systems a server is used to read those
 information from /dev/kmem or whatever. 
 
 %description -l pl
-LibGTop jest bibliotek± pozyskiwania informacje o uruchomionych procesach
+LibGTop jest bibliotek± do pozyskiwania informacji o uruchomionych procesach
 jak zajêto¶æ pamiêci i czasu procesora, aktywnych procesach itd.
 
 Na Linuxie powy¿sze informacje s± pozyskiwane bezpo¶rednio z systemu
@@ -69,14 +69,15 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--with-libgtop-inodedb
 make
 
-bzip2 -9 src/inodedb/README.inodedb
-bzip2 -9 RELNOTES* AUTHORS ChangeLog NEWS README
-
 %install
 rm -rf $RPM_BUILD_ROOT
+
 make install DESTDIR=$RPM_BUILD_ROOT
 
 strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
+
+gzip -9nf src/inodedb/README.inodedb
+gzip -9nf RELNOTES* AUTHORS ChangeLog NEWS README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc src/inodedb/README.inodedb.bz2
+%doc src/inodedb/README.inodedb.gz
 
 %attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
 %attr(755,root,root) /usr/X11R6/bin/file_by_inode
@@ -111,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc RELNOTES* AUTHORS.bz2 ChangeLog.bz2 NEWS.bz2 README.bz2
+%doc {RELNOTES*,AUTHORS,ChangeLog,NEWS,README}.gz
 %attr(755,root,root) /usr/X11R6/bin/libgtop-config
 %attr(755,root,root) /usr/X11R6/lib/lib*.so
 %attr(755,root,root) /usr/X11R6/lib/*.sh
@@ -122,6 +123,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [1.0.1-2]
+- gzipping documentation (instead bzipping)
+
 * Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.0.1-1]
 - changed Group in devel and static to X11/Development/Libraries,
