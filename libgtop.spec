@@ -1,8 +1,8 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.9
-Release:	4
+Version:	1.0.10
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Applications
@@ -24,7 +24,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
 
 %define		_prefix		/usr/X11R6
-%define		_info		/usr/share/info
 
 %description
 A library that fetches information about the running system such as
@@ -122,10 +121,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/*.sh
 %attr(755,root,root) %{_libdir}/*.la
-
-%{_infodir}/*
-
+%{_libdir}/*.def
 %{_includedir}/*
+%{_infodir}/*
 
 %files static
 %defattr(644,root,root,755)
