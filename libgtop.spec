@@ -8,7 +8,12 @@ Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
 Patch:		libgtop-DESTDIR.patch
-Requires:	glib = 1.2.1
+BuildPrereq:	glib-devel >= 1.2.0
+BuildPrereq:	ORBit-devel 
+BuildPrereq:	guile-devel 
+BuildPrereq:	XFree86-devel
+BuildPrereq:	gettext
+Requires:	glib >= 1.2.0
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
