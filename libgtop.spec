@@ -1,16 +1,15 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	0.99.1
-Release:	1d
+Version:	1.0.1
+Release:	1
 Copyright:	LGPL
-Group:		X11/Libraries
-Group(pl):	X11/Biblioteki
+Group:		X11/GNOME
+Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
-Patch0:		libgtop-DESTDIR.patch
-Patch1:		libgtop-mountlist.patch
-Requires:	gnome-libs = 0.99.2
-Requires:	glib = 1.1.15
+Patch:		libgtop-DESTDIR.patch
+Requires:	gnome-libs = 1.0.2
+Requires:	glib = 1.2.0
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
@@ -35,8 +34,8 @@ sposób zale¿ny od systemu.
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
 Summary(pl):	Pliki nag³ówkowe dla LibGTop
-Group:		X11/libraries
-Group(pl):	X11/Biblioteki
+Group:		X11/Development/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
@@ -48,8 +47,8 @@ Pliki nag³ówkowe i inne potrzebne do tworzenia programów opartych o LibGTop.
 %package	static
 Summary:	Static LibGTop libraries
 Summary(pl):	Biblioteki statyczne LibGTop
-Group:		X11/libraries
-Group(pl):	X11/Biblioteki
+Group:		X11/Development/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -60,11 +59,9 @@ Biblioteki statyczne LibGTop.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -p1
 
 %build
-autoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr/X11R6 \
@@ -88,10 +85,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc src/inodedb/README.inodedb.bz2
 
-%attr(755,root,root) /usr/X11R6/lib/lib*.so.*
+%attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
 %attr(755,root,root) /usr/X11R6/bin/file_by_inode
 %attr(755,root,root) /usr/X11R6/bin/libgtop_daemon
 %attr(755,root,root) /usr/X11R6/bin/mkinodedb
@@ -108,17 +105,15 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es_PE) /usr/X11R6/share/locale/es_PE/LC_MESSAGES/libgtop.mo
 %lang(es_SV) /usr/X11R6/share/locale/es_SV/LC_MESSAGES/libgtop.mo
 %lang(fr)    /usr/X11R6/share/locale/fr/LC_MESSAGES/libgtop.mo
+%lang(ja)    /usr/X11R6/share/locale/ja/LC_MESSAGES/libgtop.mo
 %lang(ko)    /usr/X11R6/share/locale/ko/LC_MESSAGES/libgtop.mo
 %lang(no)    /usr/X11R6/share/locale/no/LC_MESSAGES/libgtop.mo
 
 %files devel
 %defattr(644,root,root,755)
 %doc RELNOTES* AUTHORS.bz2 ChangeLog.bz2 NEWS.bz2 README.bz2
-
 %attr(755,root,root) /usr/X11R6/bin/libgtop-config
-
-/usr/X11R6/lib/lib*.so
-
+%attr(755,root,root) /usr/X11R6/lib/lib*.so
 %attr(755,root,root) /usr/X11R6/lib/*.sh
 
 /usr/X11R6/include/*
@@ -127,6 +122,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Thu Mar 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.0.1-1]
+- changed Group in devel and static to X11/Development/Libraries,
+- updated Requires (gnome-libs = 1.0.2, glib = 1.2.0),
+- more locales (ja).
+
 * Mon Jan 04 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.99.1-1]
 - added LDFLAGS="-s" to ./configure enviroment,
