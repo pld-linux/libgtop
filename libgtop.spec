@@ -8,7 +8,7 @@ Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
 Patch:		libgtop-DESTDIR.patch
-Requires:	gnome-libs = 1.0.2
+Requires:	gnome-libs = 1.0.4
 Requires:	glib = 1.2.0
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
