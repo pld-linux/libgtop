@@ -1,0 +1,10 @@
+--- libgtop-2.5.0/sysdeps/common/inodedb.c.wiget	2003-11-12 00:02:55.000000000 +0100
++++ libgtop-2.5.0/sysdeps/common/inodedb.c	2003-11-12 00:05:33.000000000 +0100
+@@ -112,5 +112,6 @@
+ 	if (inodedb->user_dbf)
+ 		gdbm_close (inodedb->user_dbf);
+ 
+-	g_free (server, inodedb);
++	g_free (inodedb);
++	g_free (server);
+ }
