@@ -201,7 +201,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.??
+%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/libgtop
 %{_includedir}/libgtop-2.0
 %{_pkgconfigdir}/*.pc
