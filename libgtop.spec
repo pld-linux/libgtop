@@ -1,5 +1,3 @@
-# TODO:
-# fix autoconf (LIBOBJS issuse)
 Summary:	LibGTop library
 Summary(es):	Biblioteca libgtop
 Summary(ja):	LibGTop ╔И╔╓╔ж╔И╔Й
@@ -9,7 +7,7 @@ Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
 Version:	2.0.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		Libraries
@@ -176,6 +174,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT 
+
+# remove bogus es_ES locale (empty while there is non-empty es)
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
 
 %find_lang %{name} --all-name
 
