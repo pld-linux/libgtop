@@ -6,16 +6,17 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.7
-Release:	1
+Version:	2.5.0
+Release:	0.1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	b07e6ed75e0d45423b47db8ac370c571
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	76c0a309157c08f2010c2f41e54b89a6
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
+Patch3:		%{name}-g_free.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	ORBit2-devel >= 2.5.1
 BuildRequires:	XFree86-devel
@@ -24,7 +25,7 @@ BuildRequires:	automake
 BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	glib2-devel >= 2.3.0
 BuildRequires:	guile-devel
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
@@ -93,7 +94,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
 Requires:	XFree86-devel
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 2.0.6
+Requires:	glib2-devel >= 2.3.0
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -153,6 +154,7 @@ LibGTop.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
@@ -197,7 +199,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README RELNOTES* src/inodedb/README.inodedb
+%doc AUTHORS ChangeLog NEWS README src/inodedb/README.inodedb
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
 %attr(755,root,root) %{_bindir}/libgtop_daemon2
@@ -207,7 +209,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_includedir}/gnome
 %{_includedir}/libgtop-2.0
 %{_infodir}/*info*
 %{_pkgconfigdir}/*.pc
