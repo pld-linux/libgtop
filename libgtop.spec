@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.8.2
+Version:	2.9.90
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	96f9a35edeaa52f30adca6005f0f1b6d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	465255a138df870d3be0eb24bd367616
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
@@ -21,9 +21,10 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 1:2.4.4
+BuildRequires:	glib2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	perl-base
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	texinfo
 Obsoletes:	libgtop-examples
@@ -90,7 +91,7 @@ Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 1:2.4.4
+Requires:	glib2-devel >= 1:2.6.2
 Obsoletes:	libgtop1-devel
 
 %description devel
