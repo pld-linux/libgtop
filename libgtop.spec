@@ -6,6 +6,8 @@ Release:     1
 Copyright:   LGPL
 Group:       X11/Libraries
 Source:      ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
+Patch0:      libgtop-DESTDIR.patch
+Requires:    gnome-libs = 0.99.2, glib = 1.1.12
 URL:         http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:   /tmp/%{name}-%{version}-root
 Obsoletes:   libgtop-examples
@@ -51,17 +53,9 @@ Static LibGTop libraries.
 %description static -l pl
 Biblioteki statyczne LibGTop.
 
-%package examples
-Summary:     Examples for LibGTop
-Summary(pl): Przyk³ady do biblioteki LibGTop
-Group:       X11/libraries
-Requires:    %{name} = %{version}
-
-%description examples
-Examples for LibGTop.
-
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
