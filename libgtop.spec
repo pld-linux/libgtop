@@ -165,7 +165,7 @@ mv -f configure.in.tmp configure.in
 rm -f missing
 %{__libtoolize}
 %{__gettextize}
-aclocal -I macros -I .
+%{__aclocal} -I macros -I .
 %{__autoconf}
 %{__automake}
 %configure \
