@@ -2,12 +2,12 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.10
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
-Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(pl):	X11/Aplikacje
+Group:		X11/Libraries
+Group(de):	X11/Libraries
+Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 BuildRequires:	ORBit-devel
