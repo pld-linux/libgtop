@@ -8,14 +8,14 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.1
-Release:	2
+Version:	2.0.2
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-ac.patch
+Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	ORBit2-devel >= 2.5.1
@@ -174,8 +174,7 @@ glib-gettextize --copy --force
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir}
+	DESTDIR=$RPM_BUILD_ROOT 
 
 %find_lang %{name} --all-name
 
