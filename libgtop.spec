@@ -2,13 +2,14 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.9
-Release:	2
-Serial:		1
+Release:	3
+Epoch:		1
 License:	LGPL
-Group:		X11/GNOME
-Group(pl):	X11/GNOME
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
-Patch0:		libgtop-info.patch
+Patch0:		%{name}-info.patch
 BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
 BuildRequires:	guile-devel
@@ -43,6 +44,7 @@ jeszcze w inny sposób zale¿ny od systemu.
 Summary:	Header files and etc for develop LibGTop applications
 Summary(pl):	Pliki nag³ówkowe dla LibGTop
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -57,6 +59,7 @@ LibGTop.
 Summary:	Static LibGTop libraries
 Summary(pl):	Biblioteki statyczne LibGTop
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
@@ -72,7 +75,6 @@ Biblioteki statyczne LibGTop.
 
 %build
 gettextize --copy --force
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--without-linux-table \
 	--with-libgtop-inodedb \
@@ -84,10 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT%{_infodir}/libgtop* \
-	src/inodedb/README.inodedb \
+gzip -9nf src/inodedb/README.inodedb \
 	RELNOTES* AUTHORS ChangeLog NEWS README
 
 %find_lang %{name}
