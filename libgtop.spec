@@ -9,7 +9,7 @@ Name:		libgtop
 Version:	2.8.3
 Release:	1
 Epoch:		1
-License:	LGPL
+License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	4cacb87938bf702b17a721b2ac068252
