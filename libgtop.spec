@@ -116,9 +116,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
-
-%changelog
-* Sat Jul 10 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.1.0-1]
-- based on RH spec,
-- spec rewrited by PLD team.
