@@ -1,13 +1,14 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.3
-Release:	2
+Version:	1.0.4
+Release:	1
 Serial:		1
 Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
+Patch:		libgtop-info.patch
 BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
 BuildRequires:	guile-devel
@@ -20,7 +21,7 @@ URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
 
-%define		_prefix	/usr/X11R6
+%define		_prefix		/usr
 
 %description
 A library that fetches information about the running system such as
@@ -44,6 +45,7 @@ Summary:	Header files and etc for develop LibGTop applications
 Summary(pl):	Pliki nag³ówkowe dla LibGTop
 Group:		X11/Development/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
+Prereq:		/usr/sbin/fix-info-dir
 Requires:	%{name} = %{version}
 
 %description devel
@@ -67,6 +69,7 @@ Biblioteki statyczne LibGTop.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 gettextize --copy --force
@@ -83,7 +86,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
 
-gzip -9nf src/inodedb/README.inodedb \
+gzip -9nf $RPM_BUILD_ROOT%{_infodir}/libgtop* \
+	src/inodedb/README.inodedb \
 	RELNOTES* AUTHORS ChangeLog NEWS README
 
 %find_lang %{name}
@@ -93,6 +97,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
+
+%post devel
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
+%preun devel
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -112,6 +122,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/*.sh
 %attr(755,root,root) %{_libdir}/*.la
+
+%{_infodir}/libgtop*
 
 %{_includedir}/*
 
