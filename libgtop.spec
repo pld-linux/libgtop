@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.5
+Version:	2.0.6
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	6d5222cbd0c8ea7782666c364ce99008
+# Source0-md5:	1b538b919fb3a53a2615f1d3e51deeff
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
@@ -170,13 +170,14 @@ glib-gettextize --copy --force
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
+#rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # remove bogus es_ES locale (empty while there is non-empty es)
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
+rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --all-name
 
@@ -195,19 +196,18 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README RELNOTES* src/inodedb/README.inodedb
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
 %attr(755,root,root) %{_bindir}/libgtop_daemon2
 %attr(755,root,root) %{_bindir}/mkinodedb2
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/libgtop
+%{_includedir}/gnome
 %{_includedir}/libgtop-2.0
-%{_pkgconfigdir}/*.pc
 %{_infodir}/*info*
+%{_pkgconfigdir}/*.pc
 
 %files static
 %defattr(644,root,root,755)
