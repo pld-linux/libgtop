@@ -1,3 +1,5 @@
+# TODO:
+# fix autoconf (LIBOBJS issuse)
 Summary:	LibGTop library
 Summary(es):	Biblioteca libgtop
 Summary(ja):	LibGTop ¥é¥¤¥Ö¥é¥ê
@@ -6,26 +8,24 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	âÉÂÌÉÏÔÅËÁ LibGTop
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ LibGTop
 Name:		libgtop
-Version:	1.0.13
-Release:	1
+Version:	2.0.0
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-amfix.patch
+Patch1:		%{name}-ac.patch
 Patch2:		%{name}-ovflw.patch
-Patch3:		%{name}-isdn.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit-devel
+BuildRequires:	ORBit2-devel >= 2.5.0
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel
-BuildRequires:	glib-devel >= 1.2.0
-BuildRequires:	gnome-libs-devel
+BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	guile-devel
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
@@ -153,36 +153,33 @@ LibGTop.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
 
 %build
-sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
-mv -f configure.in.tmp configure.in
 rm -f missing
 %{__libtoolize}
-%{__gettextize}
-%{__aclocal} -I macros -I .
+glib-gettextize --copy --force
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--without-linux-table \
+	--with-linux-table=no \
 	--with-libgtop-inodedb \
+	--with-libgtop-guile \
 	--with-libgtop-smp
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	pkgconfigdir=%{_pkgconfigdir}
 
-gzip -9nf src/inodedb/README.inodedb \
-	RELNOTES* AUTHORS ChangeLog NEWS README
-
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -198,23 +195,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc src/inodedb/README.inodedb.gz
-
+%doc AUTHORS ChangeLog NEWS README RELNOTES* src/inodedb/README.inodedb
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_bindir}/file_by_inode
-%attr(755,root,root) %{_bindir}/libgtop_daemon
-%attr(755,root,root) %{_bindir}/mkinodedb
-
-%{_libdir}/libgtop-features.def
+%attr(755,root,root) %{_bindir}/file_by_inode2
+%attr(755,root,root) %{_bindir}/libgtop_daemon2
+%attr(755,root,root) %{_bindir}/mkinodedb2
 
 %files devel
 %defattr(644,root,root,755)
-%doc {RELNOTES*,AUTHORS,ChangeLog,NEWS,README}.gz
-%attr(755,root,root) %{_bindir}/libgtop-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/*.sh
-%attr(755,root,root) %{_libdir}/*.la
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/lib*.??
+%{_libdir}/libgtop
+%{_includedir}/libgtop-2.0
+%{_pkgconfigdir}/*.pc
 %{_infodir}/*info*
 
 %files static
