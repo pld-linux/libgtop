@@ -8,8 +8,8 @@ Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
 Patch:		libgtop-DESTDIR.patch
-Requires:	gnome-libs = 1.0.5
-Requires:	glib = 1.2.1
+%requires_pkg	gnome-libs 
+%requires_pkg	glib
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
@@ -76,8 +76,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
 
-gzip -9nf src/inodedb/README.inodedb
-gzip -9nf RELNOTES* AUTHORS ChangeLog NEWS README
+gzip -9nf src/inodedb/README.inodedb \
+	  RELNOTES* AUTHORS ChangeLog NEWS README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -120,7 +120,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/include/*
 
 %files static
-%attr(644,root,root) /usr/X11R6/lib/lib*.a
+%defattr(644,root,root,755)
+/usr/X11R6/lib/lib*.a
 
 %changelog
 * Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
