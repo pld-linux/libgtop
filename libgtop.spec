@@ -121,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 - added using %%{name} and %%{version} in Source,
 - added static subpackage,
 - removed "Prereq: /sbin/install-info" from main package,
-- changeded dependences to "Requires: %%{name} = %%{version}" in devel
+- changed dependencies to "Requires: %%{name} = %%{version}" in devel
   and examples subpackages,
 - added full %attr description in %files,
 - removed copyright.txt from %doc (copyright statment is in Copyright
