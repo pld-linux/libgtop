@@ -1,16 +1,19 @@
-Summary:     LibGTop library
-Summary(pl): Biblioteka LibGTop
-Name:        libgtop
-Version:     0.99.1
-Release:     1
-Copyright:   LGPL
-Group:       X11/Libraries
-Source:      ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
-Patch0:      libgtop-DESTDIR.patch
-Requires:    gnome-libs = 0.99.2, glib = 1.1.12
-URL:         http://www.home-of-linux.org/gnome/libgtop/
-BuildRoot:   /tmp/%{name}-%{version}-root
-Obsoletes:   libgtop-examples
+Summary:	LibGTop library
+Summary(pl):	Biblioteka LibGTop
+Name:		libgtop
+Version:	0.99.1
+Release:	1d
+Copyright:	LGPL
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
+Patch0:		libgtop-DESTDIR.patch
+Patch1:		libgtop-mountlist.patch
+Requires:	gnome-libs = 0.99.2
+Requires:	glib = 1.1.15
+URL:		http://www.home-of-linux.org/gnome/libgtop/
+BuildRoot:	/tmp/%{name}-%{version}-root
+Obsoletes:	libgtop-examples
 
 %description
 A library that fetches information about the running system such as
@@ -30,10 +33,11 @@ informacji wykorzystywane jest urz±dzenie /dev/kmem lub jeszcze w inny
 sposób zale¿ny od systemu.
 
 %package devel
-Summary:     Header files and etc for develop LibGTop applications
-Summary(pl): Pliki nag³ówkowe i inne potrzebne do tworzenia programów opartych o LibGTop
-Group:       X11/libraries
-Requires:    %{name} = %{version}
+Summary:	Header files and etc for develop LibGTop applications
+Summary(pl):	Pliki nag³ówkowe dla LibGTop
+Group:		X11/libraries
+Group(pl):	X11/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
 Header files and etc for develop LibGTop applications.
@@ -41,11 +45,12 @@ Header files and etc for develop LibGTop applications.
 %description devel -l pl
 Pliki nag³ówkowe i inne potrzebne do tworzenia programów opartych o LibGTop.
 
-%package static
-Summary:     Static LibGTop libraries
-Summary(pl): Biblioteki statyczne LibGTop
-Group:       X11/libraries
-Requires:    %{name}-devel = %{version}
+%package	static
+Summary:	Static LibGTop libraries
+Summary(pl):	Biblioteki statyczne LibGTop
+Group:		X11/libraries
+Group(pl):	X11/Biblioteki
+Requires:	%{name}-devel = %{version}
 
 %description static
 Static LibGTop libraries.
@@ -56,14 +61,19 @@ Biblioteki statyczne LibGTop.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
+autoconf
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr/X11R6 \
 	--without-linux-table \
 	--with-libgtop-inodedb
 make
+
+bzip2 -9 src/inodedb/README.inodedb
+bzip2 -9 RELNOTES* AUTHORS ChangeLog NEWS README
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -79,11 +89,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-%doc src/inodedb/README.inodedb
-%attr(755, root, root) /usr/X11R6/lib/lib*.so.*.*
-%attr(755, root, root) /usr/X11R6/bin/file_by_inode
-%attr(755, root, root) /usr/X11R6/bin/libgtop_daemon
-%attr(755, root, root) /usr/X11R6/bin/mkinodedb
+%doc src/inodedb/README.inodedb.bz2
+
+%attr(755,root,root) /usr/X11R6/lib/lib*.so.*
+%attr(755,root,root) /usr/X11R6/bin/file_by_inode
+%attr(755,root,root) /usr/X11R6/bin/libgtop_daemon
+%attr(755,root,root) /usr/X11R6/bin/mkinodedb
 
 /usr/X11R6/lib/libgtop-features.def
 
@@ -101,15 +112,19 @@ rm -rf $RPM_BUILD_ROOT
 %lang(no)    /usr/X11R6/share/locale/no/LC_MESSAGES/libgtop.mo
 
 %files devel
-%defattr(644, root, root, 755)
-%doc RELNOTES* AUTHORS ChangeLog NEWS README
-%attr(755, root, root) /usr/X11R6/bin/libgtop-config
+%defattr(644,root,root,755)
+%doc RELNOTES* AUTHORS.bz2 ChangeLog.bz2 NEWS.bz2 README.bz2
+
+%attr(755,root,root) /usr/X11R6/bin/libgtop-config
+
 /usr/X11R6/lib/lib*.so
-%attr(755, root, root) /usr/X11R6/lib/*.sh
+
+%attr(755,root,root) /usr/X11R6/lib/*.sh
+
 /usr/X11R6/include/*
 
 %files static
-%attr(644, root, root) /usr/X11R6/lib/lib*.a
+%attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
 * Mon Jan 04 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
@@ -117,7 +132,13 @@ rm -rf $RPM_BUILD_ROOT
 - added LDFLAGS="-s" to ./configure enviroment,
 - removed examples subpackage (added to Obsoletes),
 - more locales (de, es, es_DO, es_GT, es_HN, es_MX, es_PA,
-  es_PE, es_SV, ko, no).
+  es_PE, es_SV, ko, no),
+
+  by Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+
+- build against GNU libc-2.1,
+- compressed documentation,
+- patch against empty macros.
 
 * Fri Sep 25 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.26.0-1]
