@@ -6,20 +6,20 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.8.3
+Version:	2.10.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	4cacb87938bf702b17a721b2ac068252
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	9a52cd5332a13e57ca606d8a85a67c97
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 1:2.4.4
+BuildRequires:	glib2-devel >= 1:2.6.2
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
@@ -89,7 +89,7 @@ Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 1:2.4.4
+Requires:	glib2-devel >= 1:2.6.2
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -198,7 +198,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README src/inodedb/README.inodedb
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
-%attr(755,root,root) %{_bindir}/libgtop_daemon2
 %attr(755,root,root) %{_bindir}/mkinodedb2
 
 %files devel
