@@ -123,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.la
 %{_libdir}/*.def
 %{_includedir}/*
-%{_infodir}/*
+%{_infodir}/*info*
 
 %files static
 %defattr(644,root,root,755)
