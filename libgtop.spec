@@ -180,7 +180,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove bogus es_ES locale (empty while there is non-empty es)
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --all-name
 
@@ -199,7 +198,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README RELNOTES* src/inodedb/README.inodedb
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
 %attr(755,root,root) %{_bindir}/libgtop_daemon2
 %attr(755,root,root) %{_bindir}/mkinodedb2
@@ -207,6 +206,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/gnome
 %{_includedir}/libgtop-2.0
 %{_infodir}/*info*
