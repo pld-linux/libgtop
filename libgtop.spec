@@ -6,29 +6,26 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.0.8
+Version:	2.5.2
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	9e5b728a8639fd7c7f86ddf2cb726435
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	92b9665293df3b54a00ddfda40c9d04e
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
-Patch3:		%{name}-am.patch
+Patch3:		%{name}-locale-names.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit2-devel >= 2.8.0
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 2.2.0
-BuildRequires:	guile-devel
+BuildRequires:	glib2-devel >= 1:2.4.0
 BuildRequires:	libtool
-BuildRequires:	zlib-devel
+BuildRequires:	perl-base
+BuildRequires:	popt-devel
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -91,10 +88,9 @@ Summary(pt_BR):	Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes c
 Summary(ru):	Файлы для разработки программ с использованием LibGTop
 Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	XFree86-devel
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 2.2.0
+Requires:	glib2-devel >= 1:2.4.0
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -131,7 +127,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libgtop
 Summary(ru):	Статические библиотеки для разработки программ с использованием LibGTop
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static LibGTop libraries.
@@ -156,7 +152,12 @@ LibGTop.
 %patch2 -p1
 %patch3 -p1
 
+mv po/{no,nb}.po
+
 cd src/daemon
+sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
+mv -f Makefile.am.tmp Makefile.am
+cd ../../examples
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
 
@@ -170,7 +171,6 @@ glib-gettextize --copy --force
 %configure \
 	--with-linux-table=no \
 	--with-libgtop-inodedb \
-	--with-libgtop-guile \
 	--with-libgtop-smp
 %{__make}
 
@@ -199,7 +199,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README RELNOTES* src/inodedb/README.inodedb
+%doc AUTHORS ChangeLog NEWS README src/inodedb/README.inodedb
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
 %attr(755,root,root) %{_bindir}/libgtop_daemon2
@@ -209,7 +209,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_includedir}/gnome
 %{_includedir}/libgtop-2.0
 %{_infodir}/*info*
 %{_pkgconfigdir}/*.pc
