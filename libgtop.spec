@@ -12,7 +12,7 @@ BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
 BuildRequires:	guile-devel
 BuildRequires:	XFree86-devel
-BuildRequires:	gettext >= 0.10.35-9
+BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel
 BuildRequires:	zlib-devel
 BuildRequires:	gnome-libs-devel
