@@ -93,8 +93,8 @@ Biblioteki statyczne LibGTop.
 %build
 libtoolize --copy --force
 gettextize --copy --force
-#aclocal -I macros
-#autoconf
+aclocal -I macros
+autoconf
 %configure2_13 \
 	--without-linux-table \
 	--with-libgtop-inodedb \
