@@ -6,17 +6,16 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.7.91
+Version:	2.7.92
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b23a6fb735e7de9fc0b368801d2c5df
+# Source0-md5:	83fd449d1eba1595fa81f5770a816dbb
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-configure.patch
 Patch2:		%{name}-ovflw.patch
-Patch3:		%{name}-locale-names.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -150,9 +149,6 @@ LibGTop.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-
-mv po/{no,nb}.po
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
@@ -182,6 +178,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove bogus es_ES locale (empty while there is non-empty es)
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --all-name
 
