@@ -57,7 +57,7 @@ Linux ¥·¥¹¥Æ¥à¤Ç¤Ï¡¢¤³¤Î¾ðÊó¤ÏÂ¾¤Î¥×¥í¥°¥é¥à¤¬ /dev/kmem ¤Ê¤É¤«¤é
 %description -l pl
 LibGTop jest bibliotek± do pozyskiwania informacji o uruchomionych
 procesach jak zajêto¶æ pamiêci i czasu procesora, aktywnych procesach
-itd. Na Linuxie powy¿sze informacje s± pozyskiwane bezpo¶rednio z
+itd. Na Linuksie powy¿sze informacje s± pozyskiwane bezpo¶rednio z
 systemu plikowego znajduj±cego siê w /proc, a na innych do pozyskania
 powy¿szych informacji wykorzystywane jest urz±dzenie /dev/kmem lub
 jeszcze w inny sposób zale¿ny od systemu.
