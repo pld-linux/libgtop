@@ -12,6 +12,9 @@ BuildPrereq:	ORBit-devel
 BuildPrereq:	guile-devel
 BuildPrereq:	XFree86-devel
 BuildPrereq:	gettext >= 0.10.35-9
+BuildPrereq:	gdbm-devel
+BuildPrereq:	zlib-devel
+BuildPrereq:	gnome-libs-devel
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	libgtop-examples
