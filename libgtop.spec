@@ -131,7 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 - removed Packager field (thi must be in private ~/.rpmrc),
 - addes triping binaries and shared libtaries,
 - changed prefix to /usr/X11R6,
-- added striping shared libraries.
+- added stripping shared libraries.
 
 * Tue Aug 19 1998 Martin Baulig <martin@home-of-linux.org>
 - released LibGTop 0.25.0
