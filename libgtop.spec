@@ -66,7 +66,7 @@ Biblioteki statyczne LibGTop.
 %build
 gettextize --copy --force
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr/X11R6 \
 	--without-linux-table \
 	--with-libgtop-inodedb
