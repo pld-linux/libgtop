@@ -2,14 +2,17 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.12
-Release:	2
+Release:	3
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-AM_GNU_GETTEXT.patch
 BuildRequires:	ORBit-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	bc
@@ -19,6 +22,9 @@ BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	guile-devel
 BuildRequires:	zlib-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
@@ -45,7 +51,12 @@ Summary:	Header files and etc for develop LibGTop applications
 Summary(pl):	Pliki nagЁСwkowe dla LibGTop
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Разработка/Библиотеки
+Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -60,7 +71,12 @@ Summary:	Static LibGTop libraries
 Summary(pl):	Biblioteki statyczne LibGTop
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Разработка/Библиотеки
+Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -72,10 +88,14 @@ Biblioteki statyczne LibGTop.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
+libtoolize --copy --force
 gettextize --copy --force
-%configure \
+#aclocal -I macros
+#autoconf
+%configure2_13 \
 	--without-linux-table \
 	--with-libgtop-inodedb \
 	--with-libgtop-smp
