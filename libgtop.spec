@@ -1,8 +1,8 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.10
-Release:	2
+Version:	1.0.11
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
