@@ -1,14 +1,14 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.6
+Version:	1.0.7
 Release:	1
 Serial:		1
-Copyright:	LGPL
+License:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
-Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
-Patch:		libgtop-info.patch
+Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
+Patch0:		libgtop-info.patch
 BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
 BuildRequires:	guile-devel
@@ -18,23 +18,20 @@ BuildRequires:	gdbm-devel
 BuildRequires:	zlib-devel
 BuildRequires:	gnome-libs-devel
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
 
 %define		_prefix		/usr
 
 %description
-A library that fetches information about the running system such as
-cpu and memory usage, active processes etc.
-
-On Linux systems, these information are taken directly from the /proc
-filesystem while on other systems a server is used to read those
-information from /dev/kmem or whatever. 
+A library that fetches information about the running system such as cpu and
+memory usage, active processes etc.  On Linux systems, these information
+are taken directly from the /proc filesystem while on other systems a
+server is used to read those information from /dev/kmem or whatever.
 
 %description -l pl
-LibGTop jest bibliotek± do pozyskiwania informacji o uruchomionych procesach
-jak zajêto¶æ pamiêci i czasu procesora, aktywnych procesach itd.
-
+LibGTop jest bibliotek± do pozyskiwania informacji o uruchomionych
+procesach jak zajêto¶æ pamiêci i czasu procesora, aktywnych procesach itd.
 Na Linuxie powy¿sze informacje s± pozyskiwane bezpo¶rednio z systemu
 plikowego znajduj±cego siê w /proc, a na innych do pozyskania powy¿szych
 informacji wykorzystywane jest urz±dzenie /dev/kmem lub jeszcze w inny
@@ -52,7 +49,8 @@ Requires:	%{name} = %{version}
 Header files and etc for develop LibGTop applications.
 
 %description devel -l pl
-Pliki nag³ówkowe i inne potrzebne do tworzenia programów opartych o LibGTop.
+Pliki nag³ówkowe i inne potrzebne do tworzenia programów opartych o
+LibGTop.
 
 %package static
 Summary:	Static LibGTop libraries
@@ -69,7 +67,7 @@ Biblioteki statyczne LibGTop.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 gettextize --copy --force
@@ -99,10 +97,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %post devel
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+%{_sbindir}/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %preun devel
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+%{_sbindir}/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
