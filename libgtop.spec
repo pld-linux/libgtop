@@ -76,7 +76,7 @@ LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--without-linux-table \
 	--with-libgtop-inodedb
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
