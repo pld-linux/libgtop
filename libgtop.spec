@@ -1,7 +1,7 @@
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.0.5
+Version:	1.0.6
 Release:	1
 Serial:		1
 Copyright:	LGPL
