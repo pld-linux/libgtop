@@ -75,7 +75,8 @@ gettextize --copy --force
 LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--without-linux-table \
-	--with-libgtop-inodedb
+	--with-libgtop-inodedb \
+	--with-libgtop-smp
 %{__make}
 
 %install
