@@ -1,0 +1,11 @@
+--- ./configure.in.orig	Sun Aug 12 13:24:30 2001
++++ ./configure.in	Sun Aug 12 13:25:07 2001
+@@ -278,7 +278,7 @@
+ 
+ dnl ## all 'es_??' are only needed for format numbers different of 'es'
+ ALL_LINGUAS="az da de el es es_DO es_GT es_HN es_MX es_PA es_PE es_SV fi fr gl ja ko nl no pl pt_BR sk sl sv"
+-AM_GNOME_GETTEXT
++AM_GNU_GETTEXT
+ 
+ AC_PATH_XTRA
+ 
