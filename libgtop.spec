@@ -2,7 +2,7 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.9
-Release:	3
+Release:	4
 Epoch:		1
 License:	LGPL
 Group:		X11/Applications
@@ -10,15 +10,15 @@ Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
-BuildRequires:	bc
-BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
-BuildRequires:	guile-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel
-BuildRequires:	zlib-devel
+BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
+BuildRequires:	guile-devel
+BuildRequires:	zlib-devel
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
