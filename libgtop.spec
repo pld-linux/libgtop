@@ -2,7 +2,7 @@ Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
 Version:	1.0.12
-Release:	5
+Release:	6
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -10,22 +10,26 @@ Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/Библиотеки
+Group(uk):	X11/Б╕бл╕отеки
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-AM_GNU_GETTEXT.patch
+Patch2:		%{name}-amfix.patch
+URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	ORBit-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bc
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel
 BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	guile-devel
-BuildRequires:	zlib-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	libtool
-URL:		http://www.home-of-linux.org/gnome/libgtop/
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtop-examples
 
@@ -89,13 +93,21 @@ Biblioteki statyczne LibGTop.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+
+(cd src/daemon
+sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
+mv -f Makefile.am.tmp Makefile.am
+)
 
 %build
+rm -f missing
 libtoolize --copy --force
 gettextize --copy --force
-aclocal -I macros
+aclocal -I macros -I .
 autoconf
-%configure2_13 \
+automake -a -c
+%configure \
 	--without-linux-table \
 	--with-libgtop-inodedb \
 	--with-libgtop-smp
