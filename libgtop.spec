@@ -10,6 +10,7 @@ Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libgtop/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
+BuildRequires:	bc
 BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	ORBit-devel
 BuildRequires:	guile-devel
