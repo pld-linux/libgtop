@@ -1,6 +1,8 @@
 Summary:	LibGTop library
+Summary(es):	Biblioteca libgtop
 Summary(ja):	LibGTop ╔И╔╓╔ж╔И╔Й
 Summary(pl):	Biblioteka LibGTop
+Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
@@ -40,6 +42,11 @@ information are taken directly from the /proc filesystem while on
 other systems a server is used to read those information from
 /dev/kmem or whatever.
 
+%description -l es
+Una biblioteca que obtiene informaciСn sobre el sistema como cpu y uso
+de la memoria, procesos activos, etc. En sistemas Linux esta
+informaciСn se obtiene directamente del sistema de archivos /proc.
+
 %description -l ja
 ╓Ё╓н╔И╔╓╔ж╔И╔Й╓о║╒ CPU ╓Д╔А╔Б╔Й╓н╩хмян╗║╒╔╒╔╞╔ф╔ё╔ж╔в╔М╔╩╔╧╓й╓и║╒
 ╪б╧тцФ╓н╔╥╔╧╔ф╔Ю╓н╬ПйС╓Рфю╓К╓©╓А╓н╓Б╓н╓г╓╧║ё
@@ -54,6 +61,11 @@ itd. Na Linuxie powy©sze informacje s╠ pozyskiwane bezpo╤rednio z
 systemu plikowego znajduj╠cego siЙ w /proc, a na innych do pozyskania
 powy©szych informacji wykorzystywane jest urz╠dzenie /dev/kmem lub
 jeszcze w inny sposСb zale©ny od systemu.
+
+%description -l pt_BR
+Uma biblioteca que obtИm informaГУes sobre o sistema como cpu e uso da
+memСria, processos ativos, etc. Em sistemas Linux estas informaГУes
+sЦo obtidas diretamente do sistema de arquivos /proc.
 
 %description -l ru
 Библиотека, которая извлекает информацию о работающей системе, такую
@@ -74,8 +86,10 @@ jeszcze w inny sposСb zale©ny od systemu.
 
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
+Summary(es):	Bibliotecas e archivos de inclusiСn para desarrollar aplicaciones libgtop.
 Summary(ja):	LibGTop ╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╨Ню╝╓н╓©╓А╓н╔И╔╓╔ж╔И╔Й║╒╔╓╔С╔╞╔К║╪╔и╔у╔║╔╓╔К╓Д╓╫╓нб╬╔у╔║╔╓╔К
 Summary(pl):	Pliki nagЁСwkowe dla LibGTop
+Summary(pt_BR):	Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes com a libgtop
 Summary(ru):	Файлы для разработки программ с использованием LibGTop
 Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
@@ -85,6 +99,10 @@ Obsoletes:	libgtop1-devel
 %description devel
 Header files and etc for develop LibGTop applications.
 
+%description devel -l es
+Bibliotecas e archivos de inclusiСn para desarrollar aplicaciones
+libgtop.
+
 %description devel -l ja
 CPU ╓Д╔А╔Б╔Й╓н╩хмян╗╓й╓и╓н╔╥╔╧╔ф╔Ю╬ПйС╓к╔╒╔╞╔╩╔╧╓╧╓К╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╓Р
 ╨Ню╝╓╧╓К╬Л╧Г║╒╓Ё╓н╔я╔ц╔╠║╪╔╦╓Р╔╓╔С╔╧╔х║╪╔К╓╥╓ф╓╞╓ю╓╣╓╓║ё
@@ -92,6 +110,10 @@ CPU ╓Д╔А╔Б╔Й╓н╩хмян╗╓й╓и╓н╔╥╔╧╔ф╔Ю╬ПйС╓к╔╒╔╞╔╩╔╧╓╧╓К╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╓Р
 %description devel -l pl
 Pliki nagЁСwkowe i inne potrzebne do tworzenia programСw opartych o
 LibGTop.
+
+%description devel -l pt_BR
+Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes com a
+libgtop.
 
 %description devel -l ru
 Библиотеки, хедеры и другие файлы для разработки программ с
@@ -104,6 +126,7 @@ LibGTop.
 %package static
 Summary:	Static LibGTop libraries
 Summary(pl):	Biblioteki statyczne LibGTop
+Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libgtop
 Summary(ru):	Статические библиотеки для разработки программ с использованием LibGTop
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
@@ -114,6 +137,9 @@ Static LibGTop libraries.
 
 %description static -l pl
 Biblioteki statyczne LibGTop.
+
+%description static -l pt_BR
+Bibliotecas estАticas para desenvolvimento com libgtop.
 
 %description static -l uk
 Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop.
