@@ -1,0 +1,21 @@
+--- libgtop-1.0.12/configure.in.orig	Fri Dec 28 14:00:08 2001
++++ libgtop-1.0.12/configure.in	Fri Dec 28 14:02:51 2001
+@@ -51,6 +51,7 @@
+ 
+ AC_ISC_POSIX
+ AC_PROG_CC
++AM_PROG_AS
+ AC_STDC_HEADERS
+ AC_ARG_PROGRAM
+ 
+--- libgtop-1.0.12/doc/Makefile.am.orig	Wed Sep 29 01:37:29 1999
++++ libgtop-1.0.12/doc/Makefile.am	Fri Dec 28 14:06:18 2001
+@@ -4,7 +4,7 @@
+ 			  auto-macros.texi version.texi main.texi \
+ 			  white-paper.texi
+ 
+-MAKEINFO		+= -I @libgtop_top_builddir@/doc
++MAKEINFO		= @MAKEINFO@ -I @libgtop_top_builddir@/doc
+ 
+ EXTRA_DIST		= auto-macros.texi.in
+ 
