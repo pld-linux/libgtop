@@ -7,6 +7,7 @@ Copyright:	LGPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source:		ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
+Patch:		libgtop-makefile.patch
 BuildPrereq:	glib-devel >= 1.2.0
 BuildPrereq:	ORBit-devel
 BuildPrereq:	guile-devel
@@ -66,6 +67,7 @@ Biblioteki statyczne LibGTop.
 
 %prep
 %setup -q
+%patch -p0
 
 %build
 gettextize --copy --force
