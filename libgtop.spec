@@ -90,7 +90,7 @@ Summary(pt_BR):	Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes c
 Summary(ru):	Файлы для разработки программ с использованием LibGTop
 Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -127,7 +127,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libgtop
 Summary(ru):	Статические библиотеки для разработки программ с использованием LibGTop
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
 Static LibGTop libraries.
