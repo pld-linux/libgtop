@@ -6,16 +6,14 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.8.2
+Version:	2.8.3
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	96f9a35edeaa52f30adca6005f0f1b6d
-Patch0:		%{name}-info.patch
-Patch1:		%{name}-configure.patch
-Patch2:		%{name}-ovflw.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	4cacb87938bf702b17a721b2ac068252
+Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -24,6 +22,7 @@ BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	glib2-devel >= 1:2.4.4
 BuildRequires:	libtool
 BuildRequires:	perl-base
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	texinfo
 Obsoletes:	libgtop-examples
@@ -148,8 +147,6 @@ LibGTop.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
