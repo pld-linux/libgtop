@@ -85,7 +85,7 @@ libtoolize --copy --force
 gettextize --copy --force
 aclocal -I macros -I .
 autoconf
-automake -a -c
+automake -a -c -f
 %configure \
 	--without-linux-table \
 	--with-libgtop-inodedb \
