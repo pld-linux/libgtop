@@ -1,13 +1,14 @@
 Summary:     LibGTop library
 Summary(pl): Biblioteka LibGTop
 Name:        libgtop
-Version:     0.26.0
+Version:     0.99.1
 Release:     1
 Copyright:   LGPL
 Group:       X11/Libraries
 Source:      ftp://ftp.home-of-linux.org/pub/%{name}-%{version}.tar.gz
 URL:         http://www.home-of-linux.org/gnome/libgtop/
 BuildRoot:   /tmp/%{name}-%{version}-root
+Obsoletes:   libgtop-examples
 
 %description
 A library that fetches information about the running system such as
@@ -63,7 +64,8 @@ Examples for LibGTop.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr/X11R6 \
 	--without-linux-table \
 	--with-libgtop-inodedb
@@ -71,17 +73,9 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/X11R6/libexec
+make install DESTDIR=$RPM_BUILD_ROOT
 
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
-
-# Move all examples to /usr/X11R6/libexec/libgtop
-mv $RPM_BUILD_ROOT/usr/X11R6/libexec $RPM_BUILD_ROOT/usr/X11R6/libgtop
-mv $RPM_BUILD_ROOT/usr/X11R6/libgtop $RPM_BUILD_ROOT/usr/X11R6/libexec
-
-strip $RPM_BUILD_ROOT/usr/X11R6/{libexec/*,bin/*,lib/lib*so.*.*} || :
-
-rm -fr $RPM_BUILD_ROOT/usr/X11R6/include/libgtop
+strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*so.*.*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,30 +84,47 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-, root, root)
+%defattr(644, root, root, 755)
 %doc src/inodedb/README.inodedb
 %attr(755, root, root) /usr/X11R6/lib/lib*.so.*.*
 %attr(755, root, root) /usr/X11R6/bin/file_by_inode
 %attr(755, root, root) /usr/X11R6/bin/libgtop_daemon
 %attr(755, root, root) /usr/X11R6/bin/mkinodedb
 
-%lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/libgtop.mo
+/usr/X11R6/lib/libgtop-features.def
+
+%lang(de)    /usr/X11R6/share/locale/de/LC_MESSAGES/libgtop.mo
+%lang(es)    /usr/X11R6/share/locale/es/LC_MESSAGES/libgtop.mo
+%lang(es_DO) /usr/X11R6/share/locale/es_DO/LC_MESSAGES/libgtop.mo
+%lang(es_GT) /usr/X11R6/share/locale/es_GT/LC_MESSAGES/libgtop.mo
+%lang(es_HN) /usr/X11R6/share/locale/es_HN/LC_MESSAGES/libgtop.mo
+%lang(es_MX) /usr/X11R6/share/locale/es_MX/LC_MESSAGES/libgtop.mo
+%lang(es_PA) /usr/X11R6/share/locale/es_PA/LC_MESSAGES/libgtop.mo
+%lang(es_PE) /usr/X11R6/share/locale/es_PE/LC_MESSAGES/libgtop.mo
+%lang(es_SV) /usr/X11R6/share/locale/es_SV/LC_MESSAGES/libgtop.mo
+%lang(fr)    /usr/X11R6/share/locale/fr/LC_MESSAGES/libgtop.mo
+%lang(ko)    /usr/X11R6/share/locale/ko/LC_MESSAGES/libgtop.mo
+%lang(no)    /usr/X11R6/share/locale/no/LC_MESSAGES/libgtop.mo
 
 %files devel
 %defattr(644, root, root, 755)
 %doc RELNOTES* AUTHORS ChangeLog NEWS README
 %attr(755, root, root) /usr/X11R6/bin/libgtop-config
 /usr/X11R6/lib/lib*.so
-/usr/X11R6/lib/*.sh
+%attr(755, root, root) /usr/X11R6/lib/*.sh
 /usr/X11R6/include/*
 
 %files static
 %attr(644, root, root) /usr/X11R6/lib/lib*.a
 
-%files examples
-%attr(755, root, root) /usr/X11R6/libexec/*
-
 %changelog
+* Mon Jan 04 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [0.99.1-1]
+- added LDFLAGS="-s" to ./configure enviroment,
+- removed examples subpackage (added to Obsoletes),
+- more locales (de, es, es_DO, es_GT, es_HN, es_MX, es_PA,
+  es_PE, es_SV, ko, no).
+
 * Fri Sep 25 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.26.0-1]
 - added -q %setup parameter,
