@@ -25,6 +25,7 @@ BuildRequires:	glib2-devel >= 1:2.4.4
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	popt-devel
+BuildRequires:	texinfo
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
