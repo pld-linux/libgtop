@@ -47,7 +47,7 @@ Header files and etc for develop LibGTop applications.
 %description devel -l pl
 Pliki nag³ówkowe i inne potrzebne do tworzenia programów opartych o LibGTop.
 
-%package	static
+%package static
 Summary:	Static LibGTop libraries
 Summary(pl):	Biblioteki statyczne LibGTop
 Group:		X11/Development/Libraries
@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f libgtop.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc src/inodedb/README.inodedb.gz
 
