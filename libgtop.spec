@@ -1,23 +1,25 @@
+# TODO:
+# fix autoconf (LIBOBJS issuse)
 Summary:	LibGTop library
 Summary(pl):	Biblioteka LibGTop
 Name:		libgtop
-Version:	1.90.2
+Version:	2.0.0
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-ac.patch
-Patch1:		%{name}-amfix.patch
+#Patch1:		%{name}-amfix.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	ORBit2-devel
+BuildRequires:	ORBit2-devel >= 2.4.0
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bc
 BuildRequires:	gettext-devel
 BuildRequires:	gdbm-devel
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 2.0.3
 BuildRequires:	guile-devel
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
@@ -69,17 +71,17 @@ Biblioteki statyczne LibGTop.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
 
 %build
 libtoolize --copy --force
-gettextize --copy --force
+glib-gettextize --copy --force
 aclocal 
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-linux-table=no \
 	--with-libgtop-inodedb \
@@ -97,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 gzip -9nf src/inodedb/README.inodedb \
 	RELNOTES* AUTHORS ChangeLog NEWS README
 
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
