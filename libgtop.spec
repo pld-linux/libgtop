@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.10.0
+Version:	2.10.1
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	9a52cd5332a13e57ca606d8a85a67c97
+# Source0-md5:	b006baa3bd486005411a03534b45708e
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
@@ -24,6 +24,7 @@ BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	texinfo
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
@@ -184,8 +185,10 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post
+%ldconfig_post
+%postun
+%ldconfig_postun
 
 %post devel
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
