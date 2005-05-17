@@ -4,7 +4,7 @@
  	{SIGPIPE,       "SIGPIPE",      "Broken pipe (POSIX)."},
  	{SIGALRM,       "SIGALRM",      "Alarm clock (POSIX)."},
  	{SIGTERM,       "SIGTERM",      "Termination (ANSI)."},
-+#ifndef (__sparc__ || __alpha__)
++#ifndef __sparc__ || __alpha__
  	{SIGSTKFLT,     "SIGSTKFLT",    "Stack fault."},
 +#endif /* sparc || alpha */
  	{SIGCLD,	"SIGCLD",       "Same as SIGCHLD (System V)."},
@@ -14,7 +14,7 @@
  	{SIGIO,		"SIGIO",	"I/O now possible (4.2 BSD)."},
  	{SIGPWR,	"SIGPWR",       "Power failure restart (System V)."},
  	{SIGSYS,	"SIGSYS",       "Bad system call."},
-+#ifndef (__sparc__ || __alpha__)
++#ifndef __sparc__ || __alpha__
  	{SIGUNUSED,	"SIGUNUSED",	""},
 +#endif /* sparc || alpha */
  	{0,		NULL,		NULL}
