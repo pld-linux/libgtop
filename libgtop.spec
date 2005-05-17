@@ -7,7 +7,7 @@ Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
 Version:	2.10.1
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
@@ -151,6 +151,7 @@ LibGTop.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
