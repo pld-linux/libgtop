@@ -1,0 +1,21 @@
+--- libgtop-2.10.1/sysdeps/linux/siglist.c	2005-03-25 13:52:12.000000000 +0100
++++ libgtop-2.10.1.orig/sysdeps/linux/siglist.c	2005-05-17 02:21:52.000000000 +0200
+@@ -51,7 +51,9 @@
+ 	{SIGPIPE,       "SIGPIPE",      "Broken pipe (POSIX)."},
+ 	{SIGALRM,       "SIGALRM",      "Alarm clock (POSIX)."},
+ 	{SIGTERM,       "SIGTERM",      "Termination (ANSI)."},
++#ifndef sparc
+ 	{SIGSTKFLT,     "SIGSTKFLT",    "Stack fault."},
++#endif /* sparc */
+ 	{SIGCLD,	"SIGCLD",       "Same as SIGCHLD (System V)."},
+ 	{SIGCHLD,       "SIGCHLD",      "Child status has changed (POSIX)."},
+ 	{SIGCONT,       "SIGCONT",      "Continue (POSIX)."},
+@@ -69,6 +71,8 @@
+ 	{SIGIO,		"SIGIO",	"I/O now possible (4.2 BSD)."},
+ 	{SIGPWR,	"SIGPWR",       "Power failure restart (System V)."},
+ 	{SIGSYS,	"SIGSYS",       "Bad system call."},
++#ifndef sparc
+ 	{SIGUNUSED,	"SIGUNUSED",	""},
++#endif /* sparc */
+ 	{0,		NULL,		NULL}
+ };
