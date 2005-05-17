@@ -7,7 +7,7 @@ Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
 Version:	2.10.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
@@ -15,6 +15,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.10/%{name}-%{version}.
 # Source0-md5:	b006baa3bd486005411a03534b45708e
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-include.patch
+Patch2:		%{name}-siglist.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
