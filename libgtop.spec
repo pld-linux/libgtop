@@ -7,7 +7,7 @@ Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
 Version:	2.10.1
-Release:	4
+Release:	5
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
