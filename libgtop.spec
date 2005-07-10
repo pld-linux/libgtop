@@ -12,7 +12,7 @@ Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	59d1f49a37abe98a25fdb005711cd5fe
+# Source0-md5:	e5a5d10cd5303deef543efb2b68d316e
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
