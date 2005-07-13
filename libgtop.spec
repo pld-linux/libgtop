@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.11.1
+Version:	2.11.2
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	e5a5d10cd5303deef543efb2b68d316e
+# Source0-md5:	feaf37f5e3852dd94bc8d6555453f689
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
