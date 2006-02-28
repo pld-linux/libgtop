@@ -6,24 +6,25 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.8.3
+Version:	2.13.92
 Release:	1
 Epoch:		1
-License:	LGPL
+License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	4cacb87938bf702b17a721b2ac068252
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	2cf0bd82fa92381403408e0155d05fca
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 1:2.4.4
+BuildRequires:	glib2-devel >= 1:2.8.0
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	texinfo
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
@@ -89,7 +90,7 @@ Summary(uk):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 1:2.4.4
+Requires:	glib2-devel >= 1:2.6.2
 Obsoletes:	libgtop1-devel
 
 %description devel
@@ -156,9 +157,8 @@ sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
 
 %build
-rm -f missing
 %{__libtoolize}
-glib-gettextize --copy --force
+%{__glib_gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -184,8 +184,8 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %post devel
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
@@ -198,7 +198,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README src/inodedb/README.inodedb
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/file_by_inode2
-%attr(755,root,root) %{_bindir}/libgtop_daemon2
 %attr(755,root,root) %{_bindir}/mkinodedb2
 
 %files devel
