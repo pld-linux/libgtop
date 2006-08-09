@@ -6,13 +6,13 @@ Summary(pt_BR):	Biblioteca libgtop
 Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
-Version:	2.14.1
+Version:	2.14.2
 Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	59cc661ae518fcae158517cc029b2add
+# Source0-md5:	adcc07c6d1c115c6d275a3c9bb1f3b68
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
@@ -157,8 +157,9 @@ sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
 mv -f Makefile.am.tmp Makefile.am
 
 %build
-%{__libtoolize}
 %{__glib_gettextize}
+%{__intltoolize}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -176,8 +177,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # remove bogus es_ES locale (empty while there is non-empty es)
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
-
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --all-name
 
