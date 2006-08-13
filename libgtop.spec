@@ -7,19 +7,20 @@ Summary(ru):	Библиотека LibGTop
 Summary(uk):	Б╕бл╕отека LibGTop
 Name:		libgtop
 Version:	2.14.2
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.14/%{name}-%{version}.tar.bz2
 # Source0-md5:	adcc07c6d1c115c6d275a3c9bb1f3b68
 Patch0:		%{name}-configure.patch
+Patch1:		%{name}-libadd.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 1:2.11.2
+BuildRequires:	glib2-devel >= 1:2.12.1
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
@@ -148,6 +149,7 @@ LibGTop.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 cd src/daemon
 sed -e 's/.*-static//' Makefile.am > Makefile.am.tmp
