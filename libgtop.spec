@@ -1,10 +1,10 @@
 Summary:	LibGTop library
-Summary(es):	Biblioteca libgtop
-Summary(ja):	LibGTop ╔И╔╓╔ж╔И╔Й
-Summary(pl):	Biblioteka LibGTop
-Summary(pt_BR):	Biblioteca libgtop
-Summary(ru):	Библиотека LibGTop
-Summary(uk):	Б╕бл╕отека LibGTop
+Summary(es.UTF-8):   Biblioteca libgtop
+Summary(ja.UTF-8):   LibGTop Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙
+Summary(pl.UTF-8):   Biblioteka LibGTop
+Summary(pt_BR.UTF-8):   Biblioteca libgtop
+Summary(ru.UTF-8):   п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ LibGTop
+Summary(uk.UTF-8):   п▒я√п╠п╩я√п╬я┌п╣п╨п╟ LibGTop
 Name:		libgtop
 Version:	2.14.6
 Release:	1
@@ -38,68 +38,68 @@ information are taken directly from the /proc filesystem while on
 other systems a server is used to read those information from
 /dev/kmem or whatever.
 
-%description -l es
-Una biblioteca que obtiene informaciСn sobre el sistema como cpu y uso
+%description -l es.UTF-8
+Una biblioteca que obtiene informaciцЁn sobre el sistema como cpu y uso
 de la memoria, procesos activos, etc. En sistemas Linux esta
-informaciСn se obtiene directamente del sistema de archivos /proc.
+informaciцЁn se obtiene directamente del sistema de archivos /proc.
 
-%description -l ja
-╓Ё╓н╔И╔╓╔ж╔И╔Й╓о║╒ CPU ╓Д╔А╔Б╔Й╓н╩хмян╗║╒╔╒╔╞╔ф╔ё╔ж╔в╔М╔╩╔╧╓й╓и║╒
-╪б╧тцФ╓н╔╥╔╧╔ф╔Ю╓н╬ПйС╓Рфю╓К╓©╓А╓н╓Б╓н╓г╓╧║ё
+%description -l ja.UTF-8
+Ц│⌠Ц│╝Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙Ц│╞Ц─│ CPU Ц┌└Ц┐║Ц┐╒Ц┐╙Ц│╝Д╫©Г■╗Г▌┤Ц─│Ц┌╒Ц┌╞Ц┐├Ц┌ёЦ┐√Ц┐≈Ц┐╜Ц┌╩Ц┌╧Ц│╙Ц│╘Ц─│
+Е╝÷Х║▄Д╦╜Ц│╝Ц┌╥Ц┌╧Ц┐├Ц┐═Ц│╝Ф┐┘Е═╠Ц┌▓Е╬≈Ц┌▀Ц│÷Ц┌│Ц│╝Ц┌┌Ц│╝Ц│╖Ц│≥Ц─┌
 
-Linux ╔╥╔╧╔ф╔Ю╓г╓о║╒╓Ё╓н╬ПйС╓об╬╓н╔в╔М╔╟╔И╔Ю╓╛ /dev/kmem ╓й╓и╓╚╓И
-╪Х╓Й╫п╓╥╓©╬ПйС╓нфЧ╓ц╓ф╓╓╓К /proc ╔у╔║╔╓╔К╔╥╔╧╔ф╔Ю╓╚╓Ифи╓ъ╧Ч╓ч╓Л╓ч╓╧║ё
+Linux Ц┌╥Ц┌╧Ц┐├Ц┐═Ц│╖Ц│╞Ц─│Ц│⌠Ц│╝Ф┐┘Е═╠Ц│╞Д╩√Ц│╝Ц┐≈Ц┐╜Ц┌╟Ц┐╘Ц┐═Ц│▄ /dev/kmem Ц│╙Ц│╘Ц│▀Ц┌┴
+Е▐√Ц┌┼Е┤╨Ц│≈Ц│÷Ф┐┘Е═╠Ц│╝Е┘╔Ц│ёЦ│╕Ц│└Ц┌▀ /proc Ц┐∙Ц┌║Ц┌╓Ц┐╚Ц┌╥Ц┌╧Ц┐├Ц┐═Ц│▀Ц┌┴Х╙╜Ц│©Х╬╪Ц│╬Ц┌▄Ц│╬Ц│≥Ц─┌
 
-%description -l pl
-LibGTop jest bibliotek╠ do pozyskiwania informacji o uruchomionych
-procesach jak zajЙto╤Ф pamiЙci i czasu procesora, aktywnych procesach
-itd. Na Linuksie powy©sze informacje s╠ pozyskiwane bezpo╤rednio z
-systemu plikowego znajduj╠cego siЙ w /proc, a na innych do pozyskania
-powy©szych informacji wykorzystywane jest urz╠dzenie /dev/kmem lub
-jeszcze w inny sposСb zale©ny od systemu.
+%description -l pl.UTF-8
+LibGTop jest bibliotekд┘ do pozyskiwania informacji o uruchomionych
+procesach jak zajд≥toе⌡д┤ pamiд≥ci i czasu procesora, aktywnych procesach
+itd. Na Linuksie powyе╪sze informacje sд┘ pozyskiwane bezpoе⌡rednio z
+systemu plikowego znajdujд┘cego siд≥ w /proc, a na innych do pozyskania
+powyе╪szych informacji wykorzystywane jest urzд┘dzenie /dev/kmem lub
+jeszcze w inny sposцЁb zaleе╪ny od systemu.
 
-%description -l pt_BR
-Uma biblioteca que obtИm informaГУes sobre o sistema como cpu e uso da
-memСria, processos ativos, etc. Em sistemas Linux estas informaГУes
-sЦo obtidas diretamente do sistema de arquivos /proc.
+%description -l pt_BR.UTF-8
+Uma biblioteca que obtц╘m informaц╖ц╣es sobre o sistema como cpu e uso da
+memцЁria, processos ativos, etc. Em sistemas Linux estas informaц╖ц╣es
+sцёo obtidas diretamente do sistema de arquivos /proc.
 
-%description -l ru
-Библиотека, которая извлекает информацию о работающей системе, такую
-как использование памяти и процессорного времени, активные процессы и
-др.
+%description -l ru.UTF-8
+п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟, п╨п╬я┌п╬я─п╟я▐ п╦п╥п╡п╩п╣п╨п╟п╣я┌ п╦п╫я└п╬я─п╪п╟я├п╦я▌ п╬ я─п╟п╠п╬я┌п╟я▌я┴п╣п╧ я│п╦я│я┌п╣п╪п╣, я┌п╟п╨я┐я▌
+п╨п╟п╨ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣ п©п╟п╪я▐я┌п╦ п╦ п©я─п╬я├п╣я│я│п╬я─п╫п╬пЁп╬ п╡я─п╣п╪п╣п╫п╦, п╟п╨я┌п╦п╡п╫я▀п╣ п©я─п╬я├п╣я│я│я▀ п╦
+п╢я─.
 
-На системах Linux эта информация берется напрямую из файловой системы
-/proc, тогда как на других системах используется сервер для чтения из
-таких источников как /dev/kmem.
+п²п╟ я│п╦я│я┌п╣п╪п╟я┘ Linux я█я┌п╟ п╦п╫я└п╬я─п╪п╟я├п╦я▐ п╠п╣я─п╣я┌я│я▐ п╫п╟п©я─я▐п╪я┐я▌ п╦п╥ я└п╟п╧п╩п╬п╡п╬п╧ я│п╦я│я┌п╣п╪я▀
+/proc, я┌п╬пЁп╢п╟ п╨п╟п╨ п╫п╟ п╢я─я┐пЁп╦я┘ я│п╦я│я┌п╣п╪п╟я┘ п╦я│п©п╬п╩я▄п╥я┐п╣я┌я│я▐ я│п╣я─п╡п╣я─ п╢п╩я▐ я┤я┌п╣п╫п╦я▐ п╦п╥
+я┌п╟п╨п╦я┘ п╦я│я┌п╬я┤п╫п╦п╨п╬п╡ п╨п╟п╨ /dev/kmem.
 
-%description -l uk
-Б╕бл╕отека, що добува╓ ╕нформац╕ю про працюючу систему, таку як
-використання памят╕ та процесорного часу, активн╕ процеси та ╕нше.
+%description -l uk.UTF-8
+п▒я√п╠п╩я√п╬я┌п╣п╨п╟, я┴п╬ п╢п╬п╠я┐п╡п╟я■ я√п╫я└п╬я─п╪п╟я├я√я▌ п©я─п╬ п©я─п╟я├я▌я▌я┤я┐ я│п╦я│я┌п╣п╪я┐, я┌п╟п╨я┐ я▐п╨
+п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ п©п╟п╪я▐я┌я√ я┌п╟ п©я─п╬я├п╣я│п╬я─п╫п╬пЁп╬ я┤п╟я│я┐, п╟п╨я┌п╦п╡п╫я√ п©я─п╬я├п╣я│п╦ я┌п╟ я√п╫я┬п╣.
 
-На системах Linux ця ╕нформац╕я береться напряму з файлово╖ системи
-/proc, тод╕ як на ╕нших системах використову╓ться сервер для читання з
-таких джерел як /dev/kmem.
+п²п╟ я│п╦я│я┌п╣п╪п╟я┘ Linux я├я▐ я√п╫я└п╬я─п╪п╟я├я√я▐ п╠п╣я─п╣я┌я▄я│я▐ п╫п╟п©я─я▐п╪я┐ п╥ я└п╟п╧п╩п╬п╡п╬я≈ я│п╦я│я┌п╣п╪п╦
+/proc, я┌п╬п╢я√ я▐п╨ п╫п╟ я√п╫я┬п╦я┘ я│п╦я│я┌п╣п╪п╟я┘ п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐я■я┌я▄я│я▐ я│п╣я─п╡п╣я─ п╢п╩я▐ я┤п╦я┌п╟п╫п╫я▐ п╥
+я┌п╟п╨п╦я┘ п╢п╤п╣я─п╣п╩ я▐п╨ /dev/kmem.
 
 %package apidocs
 Summary:	libGTop API documentation
-Summary(pl):	Dokumentacja API libGTop
+Summary(pl.UTF-8):   Dokumentacja API libGTop
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 libGTop API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API libGTop.
 
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
-Summary(es):	Bibliotecas e archivos de inclusiСn para desarrollar aplicaciones libgtop
-Summary(ja):	LibGTop ╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╨Ню╝╓н╓©╓А╓н╔И╔╓╔ж╔И╔Й║╒╔╓╔С╔╞╔К║╪╔и╔у╔║╔╓╔К╓Д╓╫╓нб╬╔у╔║╔╓╔К
-Summary(pl):	Pliki nagЁСwkowe dla LibGTop
-Summary(pt_BR):	Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes com a libgtop
-Summary(ru):	Файлы для разработки программ с использованием LibGTop
-Summary(uk):	Файли для розробки програм з використанням LibGTop
+Summary(es.UTF-8):   Bibliotecas e archivos de inclusiцЁn para desarrollar aplicaciones libgtop
+Summary(ja.UTF-8):   LibGTop Ц┌╒Ц┐≈Ц┐╙Ц┌╠Ц┐╪Ц┌╥Ц┐╖Ц┐ЁД╫°Ф┬░Ц│╝Ц│÷Ц┌│Ц│╝Ц┐╘Ц┌╓Ц┐√Ц┐╘Ц┐╙Ц─│Ц┌╓Ц┐ЁЦ┌╞Ц┐╚Ц┐╪Ц┐┴Ц┐∙Ц┌║Ц┌╓Ц┐╚Ц┌└Ц│²Ц│╝Д╩√Ц┐∙Ц┌║Ц┌╓Ц┐╚
+Summary(pl.UTF-8):   Pliki nagе┌цЁwkowe dla LibGTop
+Summary(pt_BR.UTF-8):   Bibliotecas e arquivos de inclusцёo para desenvolver aplicaц╖ц╣es com a libgtop
+Summary(ru.UTF-8):   п╓п╟п╧п╩я▀ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ LibGTop
+Summary(uk.UTF-8):   п╓п╟п╧п╩п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
@@ -109,53 +109,53 @@ Obsoletes:	libgtop1-devel
 %description devel
 Header files and etc for develop LibGTop applications.
 
-%description devel -l es
-Bibliotecas e archivos de inclusiСn para desarrollar aplicaciones
+%description devel -l es.UTF-8
+Bibliotecas e archivos de inclusiцЁn para desarrollar aplicaciones
 libgtop.
 
-%description devel -l ja
-CPU ╓Д╔А╔Б╔Й╓н╩хмян╗╓й╓и╓н╔╥╔╧╔ф╔Ю╬ПйС╓к╔╒╔╞╔╩╔╧╓╧╓К╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╓Р
-╨Ню╝╓╧╓К╬Л╧Г║╒╓Ё╓н╔я╔ц╔╠║╪╔╦╓Р╔╓╔С╔╧╔х║╪╔К╓╥╓ф╓╞╓ю╓╣╓╓║ё
+%description devel -l ja.UTF-8
+CPU Ц┌└Ц┐║Ц┐╒Ц┐╙Ц│╝Д╫©Г■╗Г▌┤Ц│╙Ц│╘Ц│╝Ц┌╥Ц┌╧Ц┐├Ц┐═Ф┐┘Е═╠Ц│╚Ц┌╒Ц┌╞Ц┌╩Ц┌╧Ц│≥Ц┌▀Ц┌╒Ц┐≈Ц┐╙Ц┌╠Ц┐╪Ц┌╥Ц┐╖Ц┐ЁЦ┌▓
+Д╫°Ф┬░Ц│≥Ц┌▀Е═╢Е░┬Ц─│Ц│⌠Ц│╝Ц┐▒Ц┐┐Ц┌╠Ц┐╪Ц┌╦Ц┌▓Ц┌╓Ц┐ЁЦ┌╧Ц┐┬Ц┐╪Ц┐╚Ц│≈Ц│╕Ц│▐Ц│═Ц│∙Ц│└Ц─┌
 
-%description devel -l pl
-Pliki nagЁСwkowe i inne potrzebne do tworzenia programСw opartych o
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe i inne potrzebne do tworzenia programцЁw opartych o
 LibGTop.
 
-%description devel -l pt_BR
-Bibliotecas e arquivos de inclusЦo para desenvolver aplicaГУes com a
+%description devel -l pt_BR.UTF-8
+Bibliotecas e arquivos de inclusцёo para desenvolver aplicaц╖ц╣es com a
 libgtop.
 
-%description devel -l ru
-Библиотеки, хедеры и другие файлы для разработки программ с
-использованием LibGTop.
+%description devel -l ru.UTF-8
+п▒п╦п╠п╩п╦п╬я┌п╣п╨п╦, я┘п╣п╢п╣я─я▀ п╦ п╢я─я┐пЁп╦п╣ я└п╟п╧п╩я▀ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│
+п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ LibGTop.
 
-%description devel -l uk
-Б╕бл╕отеки, хедери та ╕нш╕ файли для розробки програм з використанням
+%description devel -l uk.UTF-8
+п▒я√п╠п╩я√п╬я┌п╣п╨п╦, я┘п╣п╢п╣я─п╦ я┌п╟ я√п╫я┬я√ я└п╟п╧п╩п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪
 LibGTop.
 
 %package static
 Summary:	Static LibGTop libraries
-Summary(pl):	Biblioteki statyczne LibGTop
-Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com libgtop
-Summary(ru):	Статические библиотеки для разработки программ с использованием LibGTop
-Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop
+Summary(pl.UTF-8):   Biblioteki statyczne LibGTop
+Summary(pt_BR.UTF-8):   Bibliotecas estц║ticas para desenvolvimento com libgtop
+Summary(ru.UTF-8):   п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ LibGTop
+Summary(uk.UTF-8):   п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static LibGTop libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne LibGTop.
 
-%description static -l pt_BR
-Bibliotecas estАticas para desenvolvimento com libgtop.
+%description static -l pt_BR.UTF-8
+Bibliotecas estц║ticas para desenvolvimento com libgtop.
 
-%description static -l uk
-Статичн╕ б╕бл╕отеки для розробки програм з використанням LibGTop.
+%description static -l uk.UTF-8
+п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ LibGTop.
 
-%description static -l ru
-Статические библиотеки для разработки программ с использованием
+%description static -l ru.UTF-8
+п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪
 LibGTop.
 
 %prep
