@@ -1,10 +1,10 @@
 Summary:	LibGTop library
-Summary(es.UTF-8):   Biblioteca libgtop
-Summary(ja.UTF-8):   LibGTop ライブラリ
-Summary(pl.UTF-8):   Biblioteka LibGTop
-Summary(pt_BR.UTF-8):   Biblioteca libgtop
-Summary(ru.UTF-8):   Библиотека LibGTop
-Summary(uk.UTF-8):   Бібліотека LibGTop
+Summary(es.UTF-8):	Biblioteca libgtop
+Summary(ja.UTF-8):	LibGTop ライブラリ
+Summary(pl.UTF-8):	Biblioteka LibGTop
+Summary(pt_BR.UTF-8):	Biblioteca libgtop
+Summary(ru.UTF-8):	Библиотека LibGTop
+Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
 Version:	2.14.6
 Release:	1
@@ -82,7 +82,7 @@ são obtidas diretamente do sistema de arquivos /proc.
 
 %package apidocs
 Summary:	libGTop API documentation
-Summary(pl.UTF-8):   Dokumentacja API libGTop
+Summary(pl.UTF-8):	Dokumentacja API libGTop
 Group:		Documentation
 Requires:	gtk-doc-common
 
@@ -94,12 +94,12 @@ Dokumentacja API libGTop.
 
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
-Summary(es.UTF-8):   Bibliotecas e archivos de inclusión para desarrollar aplicaciones libgtop
-Summary(ja.UTF-8):   LibGTop アプリケーション作成のためのライブラリ、インクルードファイルやその他ファイル
-Summary(pl.UTF-8):   Pliki nagłówkowe dla LibGTop
-Summary(pt_BR.UTF-8):   Bibliotecas e arquivos de inclusão para desenvolver aplicações com a libgtop
-Summary(ru.UTF-8):   Файлы для разработки программ с использованием LibGTop
-Summary(uk.UTF-8):   Файли для розробки програм з використанням LibGTop
+Summary(es.UTF-8):	Bibliotecas e archivos de inclusión para desarrollar aplicaciones libgtop
+Summary(ja.UTF-8):	LibGTop アプリケーション作成のためのライブラリ、インクルードファイルやその他ファイル
+Summary(pl.UTF-8):	Pliki nagłówkowe dla LibGTop
+Summary(pt_BR.UTF-8):	Bibliotecas e arquivos de inclusão para desenvolver aplicações com a libgtop
+Summary(ru.UTF-8):	Файлы для разработки программ с использованием LibGTop
+Summary(uk.UTF-8):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
@@ -135,10 +135,10 @@ LibGTop.
 
 %package static
 Summary:	Static LibGTop libraries
-Summary(pl.UTF-8):   Biblioteki statyczne LibGTop
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com libgtop
-Summary(ru.UTF-8):   Статические библиотеки для разработки программ с использованием LibGTop
-Summary(uk.UTF-8):   Статичні бібліотеки для розробки програм з використанням LibGTop
+Summary(pl.UTF-8):	Biblioteki statyczne LibGTop
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com libgtop
+Summary(ru.UTF-8):	Статические библиотеки для разработки программ с использованием LibGTop
+Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
