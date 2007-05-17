@@ -27,6 +27,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	texinfo
+BuildRequires:	xorg-lib-libXau-devel
 Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -104,6 +105,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
 Requires:	glib2-devel >= 1:2.12.6
+Requires:	xorg-lib-libXau-devel
 Obsoletes:	libgtop1-devel
 
 %description devel
