@@ -185,8 +185,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# remove bogus es_ES locale (empty while there is non-empty es)
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}.po
 
 %find_lang %{name} --all-name
 
