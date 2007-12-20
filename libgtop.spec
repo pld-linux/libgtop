@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca libgtop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.20.0
+Version:	2.21.1
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	ddc05ffe9499294801cbd5fdac949045
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.21/%{name}-%{version}.tar.bz2
+# Source0-md5:	16895460107c980d698fec58330ef45d
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf
@@ -184,8 +184,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}.po
 
 %find_lang %{name} --all-name
 
