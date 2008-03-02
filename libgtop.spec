@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.21.5
+Version:	2.21.92
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	af1c7df21d7b4289e6f63e4bcb3f626e
+# Source0-md5:	0cb43cb9fcd38ceb50b7d9aeec86f676
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.59
@@ -182,6 +182,7 @@ LibGTop - przykładowe programy.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-gtk-doc \
