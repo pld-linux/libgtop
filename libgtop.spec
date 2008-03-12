@@ -1,35 +1,36 @@
 Summary:	LibGTop library
-Summary(es.UTF-8):	Biblioteca libgtop
+Summary(es.UTF-8):	Biblioteca LibGTop
 Summary(ja.UTF-8):	LibGTop ライブラリ
 Summary(pl.UTF-8):	Biblioteka LibGTop
-Summary(pt_BR.UTF-8):	Biblioteca libgtop
+Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.20.1
+Version:	2.22.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	b6fa671e8325bd8dbce684527791225a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	c4f15d95dea6441a08b4f2260996becd
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	glib2-devel >= 1:2.14.0
+BuildRequires:	gettext-devel >= 0.10.35-9
+BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gtk-doc >= 1.8
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
-BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	texinfo
 BuildRequires:	xorg-lib-libXau-devel
-Obsoletes:	libgtop-examples
 Obsoletes:	libgtop1
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -82,23 +83,23 @@ são obtidas diretamente do sistema de arquivos /proc.
 таких джерел як /dev/kmem.
 
 %package apidocs
-Summary:	libGTop API documentation
-Summary(pl.UTF-8):	Dokumentacja API libGTop
+Summary:	LibGTop API documentation
+Summary(pl.UTF-8):	Dokumentacja API LibGTop
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
-libGTop API documentation.
+LibGTop API documentation.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API libGTop.
+Dokumentacja API LibGTop.
 
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
-Summary(es.UTF-8):	Bibliotecas e archivos de inclusión para desarrollar aplicaciones libgtop
+Summary(es.UTF-8):	Bibliotecas e archivos de inclusión para desarrollar aplicaciones LibGTop
 Summary(ja.UTF-8):	LibGTop アプリケーション作成のためのライブラリ、インクルードファイルやその他ファイル
 Summary(pl.UTF-8):	Pliki nagłówkowe dla LibGTop
-Summary(pt_BR.UTF-8):	Bibliotecas e arquivos de inclusão para desenvolver aplicações com a libgtop
+Summary(pt_BR.UTF-8):	Bibliotecas e arquivos de inclusão para desenvolver aplicações com a LibGTop
 Summary(ru.UTF-8):	Файлы для разработки программ с использованием LibGTop
 Summary(uk.UTF-8):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
@@ -113,7 +114,7 @@ Header files and etc for develop LibGTop applications.
 
 %description devel -l es.UTF-8
 Bibliotecas e archivos de inclusión para desarrollar aplicaciones
-libgtop.
+LibGTop.
 
 %description devel -l ja.UTF-8
 CPU やメモリの使用率などのシステム情報にアクセスするアプリケーションを
@@ -125,7 +126,7 @@ LibGTop.
 
 %description devel -l pt_BR.UTF-8
 Bibliotecas e arquivos de inclusão para desenvolver aplicações com a
-libgtop.
+LibGTop.
 
 %description devel -l ru.UTF-8
 Библиотеки, хедеры и другие файлы для разработки программ с
@@ -138,7 +139,7 @@ LibGTop.
 %package static
 Summary:	Static LibGTop libraries
 Summary(pl.UTF-8):	Biblioteki statyczne LibGTop
-Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com libgtop
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com LibGTop
 Summary(ru.UTF-8):	Статические библиотеки для разработки программ с использованием LibGTop
 Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
@@ -151,7 +152,7 @@ Static LibGTop libraries.
 Biblioteki statyczne LibGTop.
 
 %description static -l pt_BR.UTF-8
-Bibliotecas estáticas para desenvolvimento com libgtop.
+Bibliotecas estáticas para desenvolvimento com LibGTop.
 
 %description static -l uk.UTF-8
 Статичні бібліотеки для розробки програм з використанням LibGTop.
@@ -159,6 +160,17 @@ Bibliotecas estáticas para desenvolvimento com libgtop.
 %description static -l ru.UTF-8
 Статические библиотеки для разработки программ с использованием
 LibGTop.
+
+%package examples
+Summary:	LibGTop - example programs
+Summary(pl.UTF-8):	LibGTop - przykładowe programy
+Group:		X11/Development/Libraries
+
+%description examples
+LibGTop - example programs.
+
+%description examples -l pl.UTF-8
+LibGTop - przykładowe programy.
 
 %prep
 %setup -q
@@ -170,6 +182,7 @@ LibGTop.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-gtk-doc \
@@ -181,9 +194,12 @@ LibGTop.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+cp examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 
@@ -204,7 +220,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.7
 
 %files apidocs
 %defattr(644,root,root,755)
@@ -212,12 +229,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libgtop-2.0.so
+%{_libdir}/libgtop-2.0.la
 %{_includedir}/libgtop-2.0
 %{_infodir}/*info*
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/libgtop-2.0.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgtop-2.0.a
+
+%files examples
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}-%{version}
