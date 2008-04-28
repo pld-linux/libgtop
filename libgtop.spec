@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.22.0
+Version:	2.22.1
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	c4f15d95dea6441a08b4f2260996becd
+# Source0-md5:	d157224c951f1284132361e50a8195b5
 Patch0:		%{name}-configure.patch
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.59
@@ -105,7 +105,7 @@ Summary(uk.UTF-8):	Файли для розробки програм з вико
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 1:2.14.0
+Requires:	glib2-devel >= 1:2.16.0
 Requires:	xorg-lib-libXau-devel
 Obsoletes:	libgtop1-devel
 
