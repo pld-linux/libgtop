@@ -16,6 +16,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.28/%{name}-%{version}.
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	glib2-devel >= 1:2.16.0
