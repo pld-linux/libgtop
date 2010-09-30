@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.28.1
+Version:	2.28.2
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	994c299b6dba330524a67ea45776b3ab
+# Source0-md5:	ed44d736efd97d062b77621de6aff439
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
