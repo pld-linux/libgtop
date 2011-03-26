@@ -6,20 +6,21 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.28.2
+Version:	2.28.3
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	ed44d736efd97d062b77621de6aff439
+# Source0-md5:	2d6a3c7c1efffd0854b8d24d1d29d8ef
 URL:		http://www.home-of-linux.org/gnome/libgtop/
-BuildRequires:	autoconf >= 2.59
+BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	gettext-devel >= 0.10.35-9
 BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
@@ -220,6 +221,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.7
+%{_libdir}/girepository-1.0/GTop-2.0.typelib
 
 %files apidocs
 %defattr(644,root,root,755)
@@ -229,6 +231,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so
 %{_libdir}/libgtop-2.0.la
+%{_datadir}/gir-1.0/GTop-2.0.gir
 %{_includedir}/libgtop-2.0
 %{_infodir}/*info*
 %{_pkgconfigdir}/libgtop-2.0.pc
