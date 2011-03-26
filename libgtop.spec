@@ -201,8 +201,6 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/en@shaw
-
 %find_lang %{name} --all-name
 
 %clean
