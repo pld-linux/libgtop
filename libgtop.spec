@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.28.4
+Version:	2.28.5
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	058ad506a5b90a43ee478bb0580e8ee4
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.28/%{name}-%{version}.tar.xz
+# Source0-md5:	3f15032ef2bf06f2b26efd13bc4ae9ab
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
@@ -27,8 +27,10 @@ BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
 BuildRequires:	xorg-lib-libXau-devel
+BuildRequires:	xz
 Obsoletes:	libgtop1
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
