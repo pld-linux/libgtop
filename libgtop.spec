@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.28.5
+Version:	2.30.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.28/%{name}-%{version}.tar.xz
-# Source0-md5:	3f15032ef2bf06f2b26efd13bc4ae9ab
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.30/%{name}-%{version}.tar.xz
+# Source0-md5:	ee29a9ef60659ebf4b075ac281f71cb2
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
@@ -222,7 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.7
+%attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.10
 %{_libdir}/girepository-1.0/GTop-2.0.typelib
 
 %files apidocs
