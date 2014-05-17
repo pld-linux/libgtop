@@ -31,6 +31,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
 BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xz
+Requires:	glib2 >= 1:2.16.0
 Obsoletes:	libgtop1
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -202,7 +203,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %find_lang %{name} --all-name
 
@@ -212,10 +213,10 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post devel	-p	/sbin/postshell
+%post	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p	/sbin/postshell
+%postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files -f %{name}.lang
