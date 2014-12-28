@@ -18,7 +18,7 @@ BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	gettext-devel >= 0.10.35-9
+BuildRequires:	gettext-tools >= 0.10.35-9
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk-doc >= 1.8
