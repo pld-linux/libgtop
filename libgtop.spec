@@ -6,20 +6,20 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.30.0
-Release:	2
+Version:	2.32.0
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.30/%{name}-%{version}.tar.xz
-# Source0-md5:	ee29a9ef60659ebf4b075ac281f71cb2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgtop/2.32/%{name}-%{version}.tar.xz
+# Source0-md5:	887491e96841eff68cfacd1ed8872e56
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	gettext-tools >= 0.10.35-9
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	intltool >= 0.35.0
@@ -31,7 +31,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
 BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.16.0
+Requires:	glib2 >= 1:2.26.0
 Obsoletes:	libgtop1
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -109,7 +109,7 @@ Summary(uk.UTF-8):	Файли для розробки програм з вико
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gdbm-devel >= 1.8.3
-Requires:	glib2-devel >= 1:2.16.0
+Requires:	glib2-devel >= 1:2.26.0
 Requires:	xorg-lib-libXau-devel
 Obsoletes:	libgtop1-devel
 
@@ -189,10 +189,8 @@ LibGTop - przykładowe programy.
 %{__automake}
 touch po/POTFILES.in
 %configure \
+	--disable-silent-rules \
 	--enable-gtk-doc \
-	--with-linux-table=no \
-	--with-libgtop-inodedb \
-	--with-libgtop-smp \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
