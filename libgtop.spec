@@ -6,23 +6,22 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.34.0
-Release:	2
+Version:	2.34.1
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.34/%{name}-%{version}.tar.xz
-# Source0-md5:	9c47c8d6d50892857c90b4546d19da82
+# Source0-md5:	81d3af0c9f78af13a0206095f747fa55
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdbm-devel >= 1.8.3
-BuildRequires:	gettext-tools >= 0.10.35-9
+BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
@@ -183,8 +182,7 @@ LibGTop - przykładowe programy.
 %setup -q
 
 %build
-%{__glib_gettextize}
-%{__intltoolize}
+%{__gettextize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
