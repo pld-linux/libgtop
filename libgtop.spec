@@ -15,7 +15,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.36/%{name}-%{version}.
 # Source0-md5:	d4591bd3ee9a7312ef2dd38d4b65f5a9
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.62
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	gettext-tools >= 0.19.4
