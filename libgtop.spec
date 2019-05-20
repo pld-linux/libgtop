@@ -6,18 +6,17 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.38.0
-Release:	2
+Version:	2.40.0
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.38/%{name}-%{version}.tar.xz
-# Source0-md5:	bb0ce7de6b28694b40405eedac8a31b5
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.40/%{name}-%{version}.tar.xz
+# Source0-md5:	c6d67325cd97b2208b41e07e6cc7b947
 URL:		http://www.home-of-linux.org/gnome/libgtop/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gdbm-devel >= 1.8.3
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
@@ -85,21 +84,6 @@ são obtidas diretamente do sistema de arquivos /proc.
 /proc, тоді як на інших системах використовується сервер для читання з
 таких джерел як /dev/kmem.
 
-%package apidocs
-Summary:	LibGTop API documentation
-Summary(pl.UTF-8):	Dokumentacja API LibGTop
-Group:		Documentation
-Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
-
-%description apidocs
-LibGTop API documentation.
-
-%description apidocs -l pl.UTF-8
-Dokumentacja API LibGTop.
-
 %package devel
 Summary:	Header files and etc for develop LibGTop applications
 Summary(es.UTF-8):	Bibliotecas e archivos de inclusión para desarrollar aplicaciones LibGTop
@@ -110,7 +94,6 @@ Summary(ru.UTF-8):	Файлы для разработки программ с и
 Summary(uk.UTF-8):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gdbm-devel >= 1.8.3
 Requires:	glib2-devel >= 1:2.26.0
 Requires:	xorg-lib-libXau-devel
 Obsoletes:	libgtop1-devel
@@ -167,6 +150,21 @@ Bibliotecas estáticas para desenvolvimento com LibGTop.
 Статические библиотеки для разработки программ с использованием
 LibGTop.
 
+%package apidocs
+Summary:	LibGTop API documentation
+Summary(pl.UTF-8):	Dokumentacja API LibGTop
+Group:		Documentation
+Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
+
+%description apidocs
+LibGTop API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API LibGTop.
+
 %package examples
 Summary:	LibGTop - example programs
 Summary(pl.UTF-8):	LibGTop - przykładowe programy
@@ -184,7 +182,7 @@ LibGTop - przykładowe programy.
 %build
 %{__gettextize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -201,6 +199,9 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtop-2.0.la
 
 cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -221,26 +222,27 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/libgtop_daemon2
+%attr(755,root,root) %{_bindir}/libgtop_server2
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.11
 %{_libdir}/girepository-1.0/GTop-2.0.typelib
 
-%files apidocs
-%defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}
-
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so
-%{_libdir}/libgtop-2.0.la
 %{_datadir}/gir-1.0/GTop-2.0.gir
 %{_includedir}/libgtop-2.0
-%{_infodir}/*info*
+%{_infodir}/libgtop2.info*
 %{_pkgconfigdir}/libgtop-2.0.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgtop-2.0.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
 
 %files examples
 %defattr(644,root,root,755)
