@@ -6,18 +6,18 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.40.0
+Version:	2.41.3
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/2.40/%{name}-%{version}.tar.xz
-# Source0-md5:	c6d67325cd97b2208b41e07e6cc7b947
-URL:		http://www.home-of-linux.org/gnome/libgtop/
+Source0:	https://download.gnome.org/sources/libgtop/2.41/%{name}-%{version}.tar.xz
+# Source0-md5:	465db9f4f695c298d9c48dcf7f32a9c0
+URL:		https://gitlab.gnome.org/GNOME/libgtop
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-tools >= 0.19.4
+BuildRequires:	gettext-tools >= 0.19.6
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk-doc >= 1.8
@@ -30,9 +30,7 @@ BuildRequires:	texinfo
 BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.26.0
-Obsoletes:	libgtop1
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
+Obsoletes:	libgtop1 < 1:2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -96,7 +94,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.26.0
 Requires:	xorg-lib-libXau-devel
-Obsoletes:	libgtop1-devel
+Obsoletes:	libgtop1-devel < 1:2
 
 %description devel
 Header files and etc for develop LibGTop applications.
@@ -220,8 +218,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/libgtop_daemon2
-%attr(755,root,root) %{_bindir}/libgtop_server2
+%attr(755,root,root) %{_libexecdir}/libgtop_daemon2
+%attr(755,root,root) %{_libexecdir}/libgtop_server2
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.11
 %{_libdir}/girepository-1.0/GTop-2.0.typelib
