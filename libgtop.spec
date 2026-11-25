@@ -6,13 +6,13 @@ Summary(pt_BR.UTF-8):	Biblioteca LibGTop
 Summary(ru.UTF-8):	Библиотека LibGTop
 Summary(uk.UTF-8):	Бібліотека LibGTop
 Name:		libgtop
-Version:	2.41.3
+Version:	2.41.4
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libgtop/2.41/%{name}-%{version}.tar.xz
-# Source0-md5:	465db9f4f695c298d9c48dcf7f32a9c0
+# Source0-md5:	404df6436292387974a6871ff3e6cd53
 URL:		https://gitlab.gnome.org/GNOME/libgtop
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
@@ -198,6 +198,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtop-2.0.la
+%{__rm} $RPM_BUILD_ROOT%{_infodir}/dir
 
 cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -218,6 +219,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+# not known to find_lang
+%lang(lo) %{_datadir}/locale/lo/LC_MESSAGES/libgtop.mo
 %attr(755,root,root) %{_libexecdir}/libgtop_daemon2
 %attr(755,root,root) %{_libexecdir}/libgtop_server2
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
