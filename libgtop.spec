@@ -200,6 +200,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtop-2.0.la
 %{__rm} $RPM_BUILD_ROOT%{_infodir}/dir
 
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/lo
+
 cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %find_lang %{name} --all-name
@@ -219,8 +221,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-# not known to find_lang
-%lang(lo) %{_datadir}/locale/lo/LC_MESSAGES/libgtop.mo
 %attr(755,root,root) %{_libexecdir}/libgtop_daemon2
 %attr(755,root,root) %{_libexecdir}/libgtop_server2
 %attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
