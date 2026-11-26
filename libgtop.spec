@@ -194,11 +194,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
+	AM_UPDATE_INFO_DIR=no \
 	DESTDIR=$RPM_BUILD_ROOT
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtop-2.0.la
-%{__rm} $RPM_BUILD_ROOT%{_infodir}/dir
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/lo
 
