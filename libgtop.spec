@@ -29,7 +29,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
 BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.26.0
+Requires:	glib2%{?_isa} >= 1:2.26.0
 Obsoletes:	libgtop1 < 1:2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,9 +91,9 @@ Summary(pt_BR.UTF-8):	Bibliotecas e arquivos de inclusão para desenvolver aplic
 Summary(ru.UTF-8):	Файлы для разработки программ с использованием LibGTop
 Summary(uk.UTF-8):	Файли для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	glib2-devel >= 1:2.26.0
-Requires:	xorg-lib-libXau-devel
+Requires:	%{name}%{?_isa} = %{epoch}:%{version}-%{release}
+Requires:	glib2-devel%{?_isa} >= 1:2.26.0
+Requires:	xorg-lib-libXau-devel%{?_isa}
 Obsoletes:	libgtop1-devel < 1:2
 
 %description devel
@@ -130,7 +130,7 @@ Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com LibGTop
 Summary(ru.UTF-8):	Статические библиотеки для разработки программ с использованием LibGTop
 Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм з використанням LibGTop
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{epoch}:%{version}-%{release}
 
 %description static
 Static LibGTop libraries.
@@ -200,6 +200,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtop-2.0.la
 
+# empty (as of 2.41.4)
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/lo
 
 cp -p examples/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
@@ -223,13 +224,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libexecdir}/libgtop_daemon2
 %attr(755,root,root) %{_libexecdir}/libgtop_server2
-%attr(755,root,root) %{_libdir}/libgtop-2.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtop-2.0.so.11
+%{_libdir}/libgtop-2.0.so.*.*.*
+%ghost %{_libdir}/libgtop-2.0.so.11
 %{_libdir}/girepository-1.0/GTop-2.0.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgtop-2.0.so
+%{_libdir}/libgtop-2.0.so
 %{_datadir}/gir-1.0/GTop-2.0.gir
 %{_includedir}/libgtop-2.0
 %{_infodir}/libgtop2.info*
